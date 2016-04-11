@@ -26,6 +26,7 @@ namespace rysowanie
             rysunek.RysujWarstwe(new Warstwa(Brushes.Red,"www", 12, 33, 200, 230), 230);
             studniaPictureBox.Image=rysunek.Obrazek;
 
+
         }
 
     }
