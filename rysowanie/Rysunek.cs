@@ -32,9 +32,12 @@ namespace rysowanie
         {
             _g.FillRectangle(warstwa.Grafika, 100, (int)(warstwa.GlebokoscStropu /glebokosc * _obrazek.Height), 300, (int)(warstwa.GlebokoscSpagu / glebokosc * _obrazek.Height));
         }
-        public void RysujStudnie(Profil studnia)
+        public void RysujProfil(Profil studnia)
         {
-            
+            foreach (Warstwa warstwa in studnia.Warstwy)
+            {
+                RysujWarstwe(warstwa, studnia.Glebokosc);
+            }
         }
 
 

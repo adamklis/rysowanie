@@ -20,10 +20,21 @@ namespace rysowanie
         private void Form1_Load(object sender, EventArgs e)
         {
             Rysunek rysunek = new Rysunek(500,700);
-            rysunek.RysujSkale();
-            rysunek.RysujWarstwe(new Warstwa(Brushes.Green,"www", 12, 33, 0, 150),230);
-            rysunek.RysujWarstwe(new Warstwa(Brushes.Blue,"www", 12, 33, 150, 200), 230);
-            rysunek.RysujWarstwe(new Warstwa(Brushes.Red,"www", 12, 33, 200, 230), 230);
+            Profil profil = new Profil();
+            profil.NowaWarstwa(new Warstwa(Brushes.Red, "pierwsza", 23), 100);
+            profil.NowaWarstwa(new Warstwa(Brushes.Green, "druga", 23), 200);
+            profil.NowaWarstwa(new Warstwa(Brushes.Blue, "trzecia", 23), 100);
+            profil.NowaWarstwa(new Warstwa(Brushes.Yellow, "czwarta", 23), 300);
+
+            //profil.NowaWarstwa(new Warstwa(Brushes.Red, "pierwsza", 23), 0,100);
+            //profil.NowaWarstwa(new Warstwa(Brushes.Green, "druga", 23), 100,300);
+            //profil.NowaWarstwa(new Warstwa(Brushes.Blue, "trzecia", 23), 300,400);
+            //profil.NowaWarstwa(new Warstwa(Brushes.Yellow, "czwarta", 23), 400,700);
+
+            rysunek.RysujProfil(profil);
+            //rysunek.RysujSkale();
+
+
             studniaPictureBox.Image=rysunek.Obrazek;
 
 

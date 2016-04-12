@@ -60,17 +60,27 @@ namespace rysowanie
 
         public Profil()
         {
-
+            _warstwy = new List<Warstwa>();
         }
 
-        public void NowaWarstwa(Warstwa warstwa)
+        public void NowaWarstwa(Warstwa warstwa, double miazszosc)
         {
-            Warstwy.Add(warstwa);
-            foreach (Warstwa w in _warstwy)
-            {
-                _glebokosc += w.GlebokoscSpagu - w.GlebokoscStropu;
-            }
+            double glebokoscStropu = _glebokosc;
+            double glebokoscSpagu = glebokoscStropu + miazszosc;
+            Warstwy.Add(new Warstwa(warstwa.Grafika, warstwa.Nazwa, warstwa.WspolczynnikFiltracji, glebokoscStropu, glebokoscSpagu, miazszosc));
+            _glebokosc += miazszosc;
+            
         }
+
+        public void NowaWarstwa(Warstwa warstwa, double glebokoscStropu, double glebokoscSpagu)
+        {
+            double miazszosc = glebokoscSpagu - glebokoscStropu;
+            Warstwy.Add(new Warstwa(warstwa.Grafika,warstwa.Nazwa,warstwa.WspolczynnikFiltracji,glebokoscStropu, glebokoscSpagu,miazszosc));
+            _glebokosc += miazszosc;
+        }
+        
+
+
         public void UsunWarstwe(int indeks)
         {
             _glebokosc -= _warstwy[indeks].GlebokoscSpagu - _warstwy[indeks].GlebokoscSpagu;

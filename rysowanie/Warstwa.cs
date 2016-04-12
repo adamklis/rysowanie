@@ -34,15 +34,23 @@ namespace rysowanie
             }
         }
 
-        public Warstwa(Brush grafika, string nazwa, double miazszosc, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu)
+        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu, double miazszosc)
         {
             _grafika = grafika;
             _nazwa = nazwa;
-            _miazszosc= miazszosc;
+            _miazszosc= glebokoscSpagu-glebokoscStropu;
             _wspolczynnikFiltracji= wspolczynnikFiltracji;
             _glebokoscStropu= glebokoscStropu;
             _glebokoscSpagu= glebokoscSpagu;
+            _miazszosc = miazszosc;
         }
-        
+
+        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji)
+        {
+            _grafika = grafika;
+            _nazwa = nazwa;
+            _wspolczynnikFiltracji = wspolczynnikFiltracji;
+        }
+
     }
 }
