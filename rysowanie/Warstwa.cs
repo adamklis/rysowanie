@@ -10,10 +10,10 @@ namespace rysowanie
     class Warstwa : Profil
     {
         private string _nazwa;
-        private double _miazszosc;
+        private double _miazszosc=0;
         private double _wspolczynnikFiltracji;
-        private double _glebokoscStropu;
-        private double _glebokoscSpagu;
+        private double _glebokoscStropu=0;
+        private double _glebokoscSpagu=0;
         private Brush _grafika;
 
         public string Nazwa{  get { return _nazwa; }  }
@@ -38,11 +38,32 @@ namespace rysowanie
         {
             _grafika = grafika;
             _nazwa = nazwa;
-            _miazszosc= glebokoscSpagu-glebokoscStropu;
+            _miazszosc= (double)(glebokoscSpagu-glebokoscStropu);
             _wspolczynnikFiltracji= wspolczynnikFiltracji;
             _glebokoscStropu= glebokoscStropu;
             _glebokoscSpagu= glebokoscSpagu;
             _miazszosc = miazszosc;
+        }
+
+        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double miazszosc)
+        {
+            _grafika = grafika;
+            _nazwa = nazwa;
+            _miazszosc = miazszosc;
+            _wspolczynnikFiltracji = wspolczynnikFiltracji;
+            _glebokoscStropu = 0;
+            _glebokoscSpagu = 0;
+        }
+
+        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu)
+        {
+            _grafika = grafika;
+            _nazwa = nazwa;
+            _miazszosc = glebokoscSpagu - glebokoscStropu;
+            _wspolczynnikFiltracji = wspolczynnikFiltracji;
+            _glebokoscStropu = glebokoscStropu;
+            _glebokoscSpagu = glebokoscSpagu;
+            
         }
 
         public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji)

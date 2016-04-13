@@ -32,7 +32,13 @@ namespace rysowanie
 
         public void RysujWarstwe(Warstwa warstwa, double glebokosc)
         {
-            _g.FillRectangle(warstwa.Grafika, (int)(_przeuniecieX * _obrazek.Width), (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height- _przesuniecieY*2))+ _przesuniecieY, (int)(_obrazek.Width- (_przeuniecieX * _obrazek.Width)*2), (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height- _przesuniecieY*2)));
+            _g.FillRectangle(
+                warstwa.Grafika, 
+                (int)(_przeuniecieX * _obrazek.Width), 
+                (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height- _przesuniecieY*2))+ _przesuniecieY, 
+                (int)(_obrazek.Width- (_przeuniecieX * _obrazek.Width)*2),
+                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height- _przesuniecieY*2))
+                );
         }       
         public void RysujProfil(Profil studnia)
         {
