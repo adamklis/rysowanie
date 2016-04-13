@@ -81,26 +81,8 @@ namespace rysowanie
           
 
         }
-
-        //public void NowaWarstwa(Warstwa warstwa, double miazszosc)
-        //{
-        //    double glebokoscStropu = _glebokosc;
-        //    double glebokoscSpagu = glebokoscStropu + miazszosc;
-        //    Warstwy.Add(new Warstwa(warstwa.Grafika, warstwa.Nazwa, warstwa.WspolczynnikFiltracji, glebokoscStropu, glebokoscSpagu, miazszosc));
-        //    _glebokosc += miazszosc;
-            
-        //}
-
-        //public void NowaWarstwa(Warstwa warstwa, double glebokoscStropu, double glebokoscSpagu)
-        //{
-        //    double miazszosc = glebokoscSpagu - glebokoscStropu;
-        //    Warstwy.Add(new Warstwa(warstwa.Grafika,warstwa.Nazwa,warstwa.WspolczynnikFiltracji,glebokoscStropu, glebokoscSpagu,miazszosc));
-        //    _glebokosc += miazszosc;
-        //}
-        
-
-
-        public void UsunWarstwe(int indeks)
+       //TODO UsunWarstwe() Do poprawienia!!
+        public void UsunWarstwe(int indeks) 
         {
             _glebokosc -=(double) (_warstwy[indeks].GlebokoscSpagu - _warstwy[indeks].GlebokoscSpagu);
             Warstwy.RemoveAt(indeks);

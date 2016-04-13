@@ -10,8 +10,11 @@ namespace rysowanie
 {
     class Rysunek
     {
-        private const int _przesuniecieY = 25;
-        private const double _przeuniecieX = 0.2;
+        private int _przesuniecieY = 25;
+        private double _przeuniecieX = 0.2;
+        private int _przeuniecieOsi = 60;
+        private int _przeuniecieLiczbOsi = 10;
+        private int _rozmiarCzcionki = 13;
         private Bitmap _obrazek;
         private Graphics _g;
         
@@ -20,6 +23,67 @@ namespace rysowanie
             get
             {
                 return _obrazek;
+            }
+        }
+
+        public int PrzesuniecieY
+        {
+            get
+            {
+                return _przesuniecieY;
+            }
+
+            set
+            {
+                _przesuniecieY = value;
+            }
+        }
+        public double PrzeuniecieX
+        {
+            get
+            {
+                return _przeuniecieX;
+            }
+
+            set
+            {
+                _przeuniecieX = value;
+            }
+        }
+        public int PrzeuniecieOsi
+        {
+            get
+            {
+                return _przeuniecieOsi;
+            }
+
+            set
+            {
+                _przeuniecieOsi = value;
+            }
+        }
+        public int PrzeuniecieLiczbOsi
+        {
+            get
+            {
+                return _przeuniecieLiczbOsi;
+            }
+
+            set
+            {
+                _przeuniecieLiczbOsi = value;
+            }
+        }
+        public int RozmiarCzcionki
+        {
+            get
+            {
+                return _rozmiarCzcionki;
+            }
+
+            set
+            {
+                _rozmiarCzcionki = value;
             }
         }
 
@@ -34,26 +98,39 @@ namespace rysowanie
         {
             _g.FillRectangle(
                 warstwa.Grafika, 
-                (int)(_przeuniecieX * _obrazek.Width), 
-                (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height- _przesuniecieY*2))+ _przesuniecieY, 
-                (int)(_obrazek.Width- (_przeuniecieX * _obrazek.Width)*2),
-                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height- _przesuniecieY*2))
+                (int)(PrzeuniecieX * _obrazek.Width), 
+                (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height- PrzesuniecieY*2))+ PrzesuniecieY, 
+                (int)(_obrazek.Width- (PrzeuniecieX * _obrazek.Width)*2),
+                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height- PrzesuniecieY*2))
                 );
         }       
-        public void RysujProfil(Profil studnia)
+        public void RysujProfil(Profil profil)
         {
-
-            foreach (Warstwa warstwa in studnia.Warstwy)
+            foreach (Warstwa warstwa in profil.Warstwy)
             {
-                RysujWarstwe(warstwa, studnia.Glebokosc);
+                RysujWarstwe(warstwa, profil.Glebokosc);
             }
+
+            RysujSkale(profil, 50);
 
         }
 
 
-        public void RysujSkale()
+        public void RysujSkale(Profil studnia, double interwal)
         {
-            _g.DrawLine(Pens.Black, 50, 0, 50, _obrazek.Height);
+
+            double skala=interwal;
+            double text = 0;
+            Font czcionka = new Font(FontFamily.GenericMonospace, RozmiarCzcionki);
+            interwal = (interwal / (studnia.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2));
+
+            _g.DrawLine(Pens.Black, PrzeuniecieOsi, PrzesuniecieY, PrzeuniecieOsi, _obrazek.Height-PrzesuniecieY);    //pionowa linia
+            for (double i = PrzesuniecieY; i < _obrazek.Height -PrzesuniecieY; i=i+interwal)
+            {
+                _g.DrawLine(Pens.Black, PrzeuniecieOsi-5, (int)i, PrzeuniecieOsi + 5, (int)i);    //poziome linie
+                _g.DrawString(text.ToString(), czcionka,Brushes.Black, PrzeuniecieLiczbOsi, (float)i-RozmiarCzcionki/2);   //tekst
+                text += skala;
+            }
         }
 
 
