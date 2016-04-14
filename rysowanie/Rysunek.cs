@@ -10,6 +10,7 @@ namespace rysowanie
 {
     class Rysunek
     {
+        private int _interwalSkali = 50;
         private int _przesuniecieY = 25;
         private double _przeuniecieX = 0.2;
         private int _przeuniecieOsi = 60;
@@ -86,6 +87,18 @@ namespace rysowanie
                 _rozmiarCzcionki = value;
             }
         }
+        public int InterwalSkali
+        {
+            get
+            {
+                return _interwalSkali;
+            }
+
+            set
+            {
+                _interwalSkali = value;
+            }
+        }
 
         public Rysunek (int x,int y)
         {
@@ -96,13 +109,19 @@ namespace rysowanie
 
         public void RysujWarstwe(Warstwa warstwa, double glebokosc)
         {
-            _g.FillRectangle(
-                warstwa.Grafika, 
-                (int)(PrzeuniecieX * _obrazek.Width), 
-                (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height- PrzesuniecieY*2))+ PrzesuniecieY, 
-                (int)(_obrazek.Width- (PrzeuniecieX * _obrazek.Width)*2),
-                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height- PrzesuniecieY*2))
+            Font czcionka = new Font(FontFamily.GenericMonospace, RozmiarCzcionki);
+            StringFormat format = new StringFormat();
+            format.Alignment = StringAlignment.Center;
+            format.LineAlignment = StringAlignment.Center;
+            RectangleF prostokat = new RectangleF(
+                (int)(PrzeuniecieX * _obrazek.Width),
+                (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY,
+                (int)(_obrazek.Width - (PrzeuniecieX * _obrazek.Width) * 2),
+                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2))
                 );
+            _g.FillRectangle(warstwa.Grafika, prostokat);
+            _g.DrawString(warstwa.Nazwa, czcionka, Brushes.Black, prostokat);
+            _g.DrawString(warstwa.WspolczynnikFiltracji+"[m/d]", czcionka, Brushes.Black, prostokat,format);
         }       
         public void RysujProfil(Profil profil)
         {
@@ -111,7 +130,7 @@ namespace rysowanie
                 RysujWarstwe(warstwa, profil.Glebokosc);
             }
 
-            RysujSkale(profil, 50);
+            RysujSkale(profil, InterwalSkali);
 
         }
 

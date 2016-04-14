@@ -22,16 +22,17 @@ namespace rysowanie
             Rysunek rysunek = new Rysunek(500,700);
 
             Profil profil = new Profil();
-            
+
 
 
             //profil.NowaWarstwa(new Warstwa(Brushes.Red, "pierwsza", 23, 100));
             //profil.NowaWarstwa(new Warstwa(Brushes.Green, "druga", 23, 200));
             //profil.NowaWarstwa(new Warstwa(Brushes.Blue, "trzecia", 23, 100));
             //profil.NowaWarstwa(new Warstwa(Brushes.Yellow, "czwarta", 23, 300));
+            
+                        
 
-
-            profil.NowaWarstwa(new Warstwa(Brushes.Red, "pierwsza", 23, 0, 100));
+            profil.NowaWarstwa(new Warstwa(Brushes.Black, "pierwsza", 23, 0, 100));
             profil.NowaWarstwa(new Warstwa(Brushes.Green, "druga", 23, 100, 300));
             profil.NowaWarstwa(new Warstwa(Brushes.Blue, "trzecia", 23, 300, 400));
             profil.NowaWarstwa(new Warstwa(Brushes.Yellow, "czwarta", 23, 400, 690));
