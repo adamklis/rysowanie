@@ -15,6 +15,7 @@ namespace rysowanie
 
         private Color _selectedColor = Color.Goldenrod;
         private Profil _profil;
+        private Rysunek rysunek;
 
         public Form1()
         {
@@ -23,27 +24,26 @@ namespace rysowanie
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Rysunek rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
+            rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
 
-            Profil profil = new Profil();
-            _profil = profil;
+            _profil = new Profil();
+            //_profil = profil;
 
 
-            //profil.NowaWarstwa(new Warstwa(Brushes.Red, "pierwsza", 23, 100));
-            //profil.NowaWarstwa(new Warstwa(Brushes.Green, "druga", 23, 200));
-            //profil.NowaWarstwa(new Warstwa(Brushes.Blue, "trzecia", 23, 100));
-            //profil.NowaWarstwa(new Warstwa(Brushes.Yellow, "czwarta", 23, 300));
-            
-                        
+            _profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 100));
+            _profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 200));
+            _profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 100));
+            _profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 300));
 
-            profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 0, 100));
-            profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 100, 300));
-            profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 300, 400));
-            profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 400, 690));
+
+            //profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 0, 100));
+            //profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 100, 300));
+            //profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 300, 400));
+            //profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 400, 690));
             //profil.UsunWarstwe(2);
 
-            rysunek.RysujProfil(profil);
-            PrzeladujLv(profil);
+            rysunek.RysujProfil(_profil);
+            PrzeladujLv(_profil);
 
             studniaPictureBox.Image=rysunek.Obrazek;
 
@@ -69,7 +69,9 @@ namespace rysowanie
                 ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa))
             {
                 Warstwa warstwa = new Warstwa(_selectedColor, nazwa, wspFiltracji, miazszosc);
-                _profil.NowaWarstwa(warstwa);
+                warstwa = _profil.NowaWarstwa(warstwa);
+                rysunek.RysujProfil(_profil);
+                studniaPictureBox.Image = rysunek.Obrazek;
                 DodajWarstweLv(warstwa);
             }
             else

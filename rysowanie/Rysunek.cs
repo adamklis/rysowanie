@@ -147,6 +147,7 @@ namespace rysowanie
         }       
         public void RysujProfil(Profil profil)
         {
+            _g.Clear(Color.White);
             foreach (Warstwa warstwa in profil.Warstwy)
             {
                 RysujWarstwe(warstwa, profil.Glebokosc);
