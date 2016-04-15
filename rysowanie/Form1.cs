@@ -12,6 +12,9 @@ namespace rysowanie
 {
     public partial class Form1 : Form
     {
+
+        private Color _selectedColor = Color.Goldenrod;
+
         public Form1()
         {
             InitializeComponent();
@@ -45,5 +48,13 @@ namespace rysowanie
 
         }
 
+        private void btnKolor_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                _selectedColor = colorDialog.Color;
+            }
+        }
     }
 }
