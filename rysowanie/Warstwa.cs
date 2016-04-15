@@ -66,12 +66,12 @@ namespace rysowanie
             
         }
 
-        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji)
-        {
-            _grafika = grafika;
-            _nazwa = nazwa;
-            _wspolczynnikFiltracji = wspolczynnikFiltracji;
-        }
+        //public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji)
+        //{
+        //    _grafika = grafika;
+        //    _nazwa = nazwa;
+        //    _wspolczynnikFiltracji = wspolczynnikFiltracji;
+        //}
 
     }
 }

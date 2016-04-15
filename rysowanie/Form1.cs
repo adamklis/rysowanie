@@ -19,7 +19,7 @@ namespace rysowanie
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Rysunek rysunek = new Rysunek(500,700);
+            Rysunek rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
 
             Profil profil = new Profil();
 
@@ -32,16 +32,14 @@ namespace rysowanie
             
                         
 
-            profil.NowaWarstwa(new Warstwa(Brushes.Black, "pierwsza", 23, 0, 100));
+            profil.NowaWarstwa(new Warstwa(Brushes.Red, "pierwsza", 23, 0, 100));
             profil.NowaWarstwa(new Warstwa(Brushes.Green, "druga", 23, 100, 300));
             profil.NowaWarstwa(new Warstwa(Brushes.Blue, "trzecia", 23, 300, 400));
             profil.NowaWarstwa(new Warstwa(Brushes.Yellow, "czwarta", 23, 400, 690));
             //profil.UsunWarstwe(2);
 
             rysunek.RysujProfil(profil);
-            //rysunek.RysujSkale();
-
-
+            
             studniaPictureBox.Image=rysunek.Obrazek;
 
 
