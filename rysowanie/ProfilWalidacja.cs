@@ -26,7 +26,7 @@
             wspFiltracjiDouble = 0;
             if (double.TryParse(wspFiltracjiString, out wspFiltracji))
             {
-                if (wspFiltracjiDouble >= 0.0000001 && wspFiltracjiDouble <= 200)
+                if (wspFiltracji >= 0.0000001 && wspFiltracji <= 200)
                 {
                     isValid = true;
                     wspFiltracjiDouble = wspFiltracji;
@@ -35,6 +35,34 @@
             return isValid;
 
         }
+
+        public static bool ZwierciadloWalidacja(string glebokoscZwierciadlaString, out double glebokoscZwierciadlaDouble)
+        {
+            bool isValid = false;
+            double glebokoscZwierciadla;
+            glebokoscZwierciadlaDouble = 0;
+            if (double.TryParse(glebokoscZwierciadlaString, out glebokoscZwierciadla))
+            {
+                if (glebokoscZwierciadla >= 0.1 && glebokoscZwierciadla <= 200)
+                {
+                    isValid = true;
+                    glebokoscZwierciadlaDouble = glebokoscZwierciadla;
+                }
+            }
+            return isValid;
+        }
+
+        public static bool PolozenieZwierciadlaWalidacja(Profil profil, double zwierciadloNawiercone,
+            double zwierciadloUstalone)
+        {
+            return !(profil.Glebokosc <= zwierciadloNawiercone || profil.Glebokosc <= zwierciadloUstalone);
+        }
+
+        public static bool PolozenieZwierciadelWzgledemSiebieWalidacja(double zwierciadloNawiercone, double zwierciadloUstalone)
+        {
+            return zwierciadloNawiercone > zwierciadloUstalone;
+        }
+        
 
     }
 }
