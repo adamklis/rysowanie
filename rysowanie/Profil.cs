@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace rysowanie
 {
-    class Profil
+    public class Profil
     {
         private List<Warstwa> _warstwy;
         private double _zwierciadloUstalone;
