@@ -2,6 +2,19 @@
 {
     public static class ProfilWalidacja
     {
+        public static bool NazwaWalidacja(string nazwa, out string nazwaValid)
+        {
+            bool isValid = false;
+            nazwaValid = string.Empty;
+            if (!string.IsNullOrEmpty(nazwa))
+            {
+                nazwaValid = nazwa;
+                isValid = true;
+            }
+
+            return isValid;
+        }
+
         public static bool MiazszoscWalidacja(string miazszoscString, out double miazszoscDouble)
         {
             bool isValid = false;
@@ -9,7 +22,7 @@
             miazszoscDouble = 0;
             if (double.TryParse(miazszoscString, out miazszosc))
             {
-                if (miazszosc >= 0.1 && miazszosc <= 100)
+                if (miazszosc >= 0.1 && miazszosc <= 300)
                 {
                     isValid = true;
                     miazszoscDouble = miazszosc;
