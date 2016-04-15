@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace rysowanie
 {
-    class Warstwa : Profil
+    public class Warstwa : Profil
     {
         private string _nazwa;
         private double _miazszosc=0;
