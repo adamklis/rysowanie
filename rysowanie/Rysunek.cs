@@ -147,7 +147,7 @@ namespace rysowanie
             for (double i = PrzesuniecieY; i < _obrazek.Height -PrzesuniecieY; i=i+interwal)
             {
                 _g.DrawLine(Pens.Black, PrzeuniecieOsi-5, (int)i, PrzeuniecieOsi + 5, (int)i);    //poziome linie
-                _g.DrawString(text.ToString(), czcionka,Brushes.Black, PrzeuniecieLiczbOsi, (float)i-RozmiarCzcionki/2);   //tekst
+                _g.DrawString(text.ToString(), czcionka,Brushes.Black, PrzeuniecieLiczbOsi, (float)i-RozmiarCzcionki/2);   //TEKST
                 text += skala;
             }
         }
