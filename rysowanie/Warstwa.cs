@@ -14,29 +14,29 @@ namespace rysowanie
         private double _wspolczynnikFiltracji;
         private double _glebokoscStropu=0;
         private double _glebokoscSpagu=0;
-        private Brush _grafika;
+        private Color _kolor;
 
         public string Nazwa{  get { return _nazwa; }  }
         public double Miazszosc { get { return _miazszosc; } }
         public double WspolczynnikFiltracji { get { return _wspolczynnikFiltracji; } }
         public double GlebokoscStropu { get { return _glebokoscStropu; } }
         public double GlebokoscSpagu { get { return _glebokoscSpagu; } }
-        public Brush Grafika
+        public Color Kolor
         {
             get
             {
-                return _grafika;
+                return _kolor;
             }
 
             set
             {
-                _grafika = value;
+                _kolor = value;
             }
         }
 
-        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu, double miazszosc)
+        public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu, double miazszosc)
         {
-            _grafika = grafika;
+            _kolor=kolor;
             _nazwa = nazwa;
             _miazszosc= (double)(glebokoscSpagu-glebokoscStropu);
             _wspolczynnikFiltracji= wspolczynnikFiltracji;
@@ -45,9 +45,9 @@ namespace rysowanie
             _miazszosc = miazszosc;
         }
 
-        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double miazszosc)
+        public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double miazszosc)
         {
-            _grafika = grafika;
+            _kolor = kolor;
             _nazwa = nazwa;
             _miazszosc = miazszosc;
             _wspolczynnikFiltracji = wspolczynnikFiltracji;
@@ -55,9 +55,9 @@ namespace rysowanie
             _glebokoscSpagu = 0;
         }
 
-        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu)
+        public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu)
         {
-            _grafika = grafika;
+            _kolor = kolor;
             _nazwa = nazwa;
             _miazszosc = glebokoscSpagu - glebokoscStropu;
             _wspolczynnikFiltracji = wspolczynnikFiltracji;
@@ -65,13 +65,6 @@ namespace rysowanie
             _glebokoscSpagu = glebokoscSpagu;
             
         }
-
-        //public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji)
-        //{
-        //    _grafika = grafika;
-        //    _nazwa = nazwa;
-        //    _wspolczynnikFiltracji = wspolczynnikFiltracji;
-        //}
 
     }
 }

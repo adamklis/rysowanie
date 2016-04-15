@@ -35,10 +35,10 @@ namespace rysowanie
             
                         
 
-            profil.NowaWarstwa(new Warstwa(Brushes.Red, "pierwsza", 23, 0, 100));
-            profil.NowaWarstwa(new Warstwa(Brushes.Green, "druga", 23, 100, 300));
-            profil.NowaWarstwa(new Warstwa(Brushes.Blue, "trzecia", 23, 300, 400));
-            profil.NowaWarstwa(new Warstwa(Brushes.Yellow, "czwarta", 23, 400, 690));
+            profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 0, 100));
+            profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 100, 300));
+            profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 300, 400));
+            profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 400, 690));
             //profil.UsunWarstwe(2);
 
             rysunek.RysujProfil(profil);

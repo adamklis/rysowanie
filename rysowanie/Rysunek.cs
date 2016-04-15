@@ -12,7 +12,8 @@ namespace rysowanie
     {
         private int _interwalSkali = 50;
         private int _przesuniecieY = 25;
-        private double _przeuniecieX = 0.2;
+        private int _przeuniecieX = 100;
+        private int _szerokoscProfilu = 150;
         private int _przeuniecieOsi = 60;
         private int _przeuniecieLiczbOsi = 10;
         private int _rozmiarCzcionki = 13;
@@ -39,7 +40,7 @@ namespace rysowanie
                 _przesuniecieY = value;
             }
         }
-        public double PrzeuniecieX
+        public int PrzeuniecieX
         {
             get
             {
@@ -99,6 +100,18 @@ namespace rysowanie
                 _interwalSkali = value;
             }
         }
+        public int SzerokoscProfilu
+        {
+            get
+            {
+                return _szerokoscProfilu;
+            }
+
+            set
+            {
+                _szerokoscProfilu = value;
+            }
+        }
 
         public Rysunek (int x,int y)
         {
@@ -111,15 +124,24 @@ namespace rysowanie
         {
             Font czcionka = new Font(FontFamily.GenericMonospace, RozmiarCzcionki);
             StringFormat format = new StringFormat();
+            SolidBrush pedzel = new SolidBrush(warstwa.Kolor);
             format.Alignment = StringAlignment.Center;
             format.LineAlignment = StringAlignment.Center;
+            //RectangleF prostokat = new RectangleF(
+            //    (int)(PrzeuniecieX * _obrazek.Width),
+            //    (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY,
+            //    (int)(_obrazek.Width - (PrzeuniecieX * _obrazek.Width) * 2),
+            //    (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2))+1
+            //    );
+
             RectangleF prostokat = new RectangleF(
-                (int)(PrzeuniecieX * _obrazek.Width),
+                (int)(PrzeuniecieX),
                 (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY,
-                (int)(_obrazek.Width - (PrzeuniecieX * _obrazek.Width) * 2),
-                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2))+1
+                (int)(SzerokoscProfilu),
+                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + 1
                 );
-            _g.FillRectangle(warstwa.Grafika, prostokat);
+
+            _g.FillRectangle(pedzel, prostokat);
             _g.DrawString(warstwa.Nazwa, czcionka, Brushes.Black, prostokat);
             _g.DrawString(warstwa.WspolczynnikFiltracji+"[m/d]", czcionka, Brushes.Black, prostokat,format);
         }       

@@ -69,13 +69,13 @@ namespace rysowanie
             {
                 double glebokoscStropu = _glebokosc;
                 double glebokoscSpagu = glebokoscStropu + warstwa.Miazszosc;
-                Warstwy.Add(new Warstwa(warstwa.Grafika, warstwa.Nazwa, warstwa.WspolczynnikFiltracji, glebokoscStropu, glebokoscSpagu, warstwa.Miazszosc));
+                Warstwy.Add(new Warstwa(warstwa.Kolor, warstwa.Nazwa, warstwa.WspolczynnikFiltracji, glebokoscStropu, glebokoscSpagu, warstwa.Miazszosc));
                 _glebokosc += warstwa.Miazszosc;
             }
             else
             {
                 double miazszosc = (double)(warstwa.GlebokoscSpagu - warstwa.GlebokoscStropu);
-                Warstwy.Add(new Warstwa(warstwa.Grafika, warstwa.Nazwa, warstwa.WspolczynnikFiltracji, warstwa.GlebokoscStropu, warstwa.GlebokoscSpagu, miazszosc));
+                Warstwy.Add(new Warstwa(warstwa.Kolor, warstwa.Nazwa, warstwa.WspolczynnikFiltracji, warstwa.GlebokoscStropu, warstwa.GlebokoscSpagu, miazszosc));
                 _glebokosc += miazszosc;
             }
           
