@@ -15,6 +15,7 @@ namespace rysowanie
         private double _glebokoscStropu=0;
         private double _glebokoscSpagu=0;
         private Brush _grafika;
+        private Color _kolor;
         private int _id;
         private static int _warstwaCounter=0;
 
@@ -39,7 +40,7 @@ namespace rysowanie
         public int Id { get { return _id; } }
         
 
-        public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu, double miazszosc)
+        public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu, double miazszosc)
         {
             _kolor=kolor;
             _nazwa = nazwa;
