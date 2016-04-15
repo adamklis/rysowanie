@@ -37,29 +37,29 @@
             this.Strop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Spag = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbWarstwa = new System.Windows.Forms.GroupBox();
-            this.gbProfil = new System.Windows.Forms.GroupBox();
-            this.cbNazwa = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbMiazszosc = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnUsun = new System.Windows.Forms.Button();
+            this.btnEdytuj = new System.Windows.Forms.Button();
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.btnKolor = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tbWspFitracji = new System.Windows.Forms.TextBox();
-            this.btnKolor = new System.Windows.Forms.Button();
-            this.btnDodaj = new System.Windows.Forms.Button();
-            this.btnEdytuj = new System.Windows.Forms.Button();
-            this.btnUsun = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbNawiercone = new System.Windows.Forms.TextBox();
-            this.tbUstalone = new System.Windows.Forms.TextBox();
-            this.btnDodajZwierciadlo = new System.Windows.Forms.Button();
-            this.btnUsunZwierciadlo = new System.Windows.Forms.Button();
-            this.btnRysuj = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbMiazszosc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbNazwa = new System.Windows.Forms.ComboBox();
+            this.gbProfil = new System.Windows.Forms.GroupBox();
             this.btnRaport = new System.Windows.Forms.Button();
+            this.btnRysuj = new System.Windows.Forms.Button();
+            this.btnUsunZwierciadlo = new System.Windows.Forms.Button();
+            this.btnDodajZwierciadlo = new System.Windows.Forms.Button();
+            this.tbUstalone = new System.Windows.Forms.TextBox();
+            this.tbNawiercone = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.gbSredni = new System.Windows.Forms.GroupBox();
-            this.tbSredniWspFiltracji = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnWspFil = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbSredniWspFiltracji = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.studniaPictureBox)).BeginInit();
             this.gbWarstwa.SuspendLayout();
             this.gbProfil.SuspendLayout();
@@ -69,10 +69,9 @@
             // studniaPictureBox
             // 
             this.studniaPictureBox.BackColor = System.Drawing.Color.White;
-            this.studniaPictureBox.Location = new System.Drawing.Point(647, 349);
-            this.studniaPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studniaPictureBox.Location = new System.Drawing.Point(970, 537);
             this.studniaPictureBox.Name = "studniaPictureBox";
-            this.studniaPictureBox.Size = new System.Drawing.Size(333, 455);
+            this.studniaPictureBox.Size = new System.Drawing.Size(500, 700);
             this.studniaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.studniaPictureBox.TabIndex = 0;
             this.studniaPictureBox.TabStop = false;
@@ -87,9 +86,10 @@
             this.Strop,
             this.Spag});
             this.lvProfil.GridLines = true;
-            this.lvProfil.Location = new System.Drawing.Point(12, 522);
+            this.lvProfil.Location = new System.Drawing.Point(18, 803);
+            this.lvProfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lvProfil.Name = "lvProfil";
-            this.lvProfil.Size = new System.Drawing.Size(630, 282);
+            this.lvProfil.Size = new System.Drawing.Size(943, 432);
             this.lvProfil.TabIndex = 1;
             this.lvProfil.UseCompatibleStateImageBehavior = false;
             this.lvProfil.View = System.Windows.Forms.View.Details;
@@ -136,12 +136,110 @@
             this.gbWarstwa.Controls.Add(this.tbMiazszosc);
             this.gbWarstwa.Controls.Add(this.label1);
             this.gbWarstwa.Controls.Add(this.cbNazwa);
-            this.gbWarstwa.Location = new System.Drawing.Point(12, 32);
+            this.gbWarstwa.Location = new System.Drawing.Point(18, 49);
+            this.gbWarstwa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbWarstwa.Name = "gbWarstwa";
-            this.gbWarstwa.Size = new System.Drawing.Size(300, 484);
+            this.gbWarstwa.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbWarstwa.Size = new System.Drawing.Size(450, 745);
             this.gbWarstwa.TabIndex = 2;
             this.gbWarstwa.TabStop = false;
             this.gbWarstwa.Text = "Warstwa";
+            // 
+            // btnUsun
+            // 
+            this.btnUsun.Location = new System.Drawing.Point(14, 425);
+            this.btnUsun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUsun.Name = "btnUsun";
+            this.btnUsun.Size = new System.Drawing.Size(428, 45);
+            this.btnUsun.TabIndex = 9;
+            this.btnUsun.Text = "Usuń";
+            this.btnUsun.UseVisualStyleBackColor = true;
+            // 
+            // btnEdytuj
+            // 
+            this.btnEdytuj.Location = new System.Drawing.Point(14, 371);
+            this.btnEdytuj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEdytuj.Name = "btnEdytuj";
+            this.btnEdytuj.Size = new System.Drawing.Size(428, 45);
+            this.btnEdytuj.TabIndex = 8;
+            this.btnEdytuj.Text = "Edytuj";
+            this.btnEdytuj.UseVisualStyleBackColor = true;
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(14, 317);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(428, 45);
+            this.btnDodaj.TabIndex = 7;
+            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            // 
+            // btnKolor
+            // 
+            this.btnKolor.Location = new System.Drawing.Point(14, 165);
+            this.btnKolor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnKolor.Name = "btnKolor";
+            this.btnKolor.Size = new System.Drawing.Size(428, 45);
+            this.btnKolor.TabIndex = 6;
+            this.btnKolor.Text = "Wybierz kolor";
+            this.btnKolor.UseVisualStyleBackColor = true;
+            this.btnKolor.Click += new System.EventHandler(this.btnKolor_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 117);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(192, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Współczynnik filtracji [m/d]";
+            // 
+            // tbWspFitracji
+            // 
+            this.tbWspFitracji.Location = new System.Drawing.Point(218, 112);
+            this.tbWspFitracji.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbWspFitracji.Name = "tbWspFitracji";
+            this.tbWspFitracji.Size = new System.Drawing.Size(222, 26);
+            this.tbWspFitracji.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 77);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Miąższość [m]";
+            // 
+            // tbMiazszosc
+            // 
+            this.tbMiazszosc.Location = new System.Drawing.Point(218, 72);
+            this.tbMiazszosc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbMiazszosc.Name = "tbMiazszosc";
+            this.tbMiazszosc.Size = new System.Drawing.Size(222, 26);
+            this.tbMiazszosc.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nazwa";
+            // 
+            // cbNazwa
+            // 
+            this.cbNazwa.FormattingEnabled = true;
+            this.cbNazwa.Location = new System.Drawing.Point(218, 29);
+            this.cbNazwa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbNazwa.Name = "cbNazwa";
+            this.cbNazwa.Size = new System.Drawing.Size(222, 28);
+            this.cbNazwa.TabIndex = 0;
             // 
             // gbProfil
             // 
@@ -153,215 +251,143 @@
             this.gbProfil.Controls.Add(this.tbNawiercone);
             this.gbProfil.Controls.Add(this.label5);
             this.gbProfil.Controls.Add(this.label4);
-            this.gbProfil.Location = new System.Drawing.Point(318, 32);
+            this.gbProfil.Location = new System.Drawing.Point(477, 49);
+            this.gbProfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbProfil.Name = "gbProfil";
-            this.gbProfil.Size = new System.Drawing.Size(324, 484);
+            this.gbProfil.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbProfil.Size = new System.Drawing.Size(486, 745);
             this.gbProfil.TabIndex = 3;
             this.gbProfil.TabStop = false;
             this.gbProfil.Text = "Profil";
             // 
-            // cbNazwa
+            // btnRaport
             // 
-            this.cbNazwa.FormattingEnabled = true;
-            this.cbNazwa.Location = new System.Drawing.Point(145, 19);
-            this.cbNazwa.Name = "cbNazwa";
-            this.cbNazwa.Size = new System.Drawing.Size(149, 21);
-            this.cbNazwa.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nazwa";
-            // 
-            // tbMiazszosc
-            // 
-            this.tbMiazszosc.Location = new System.Drawing.Point(145, 47);
-            this.tbMiazszosc.Name = "tbMiazszosc";
-            this.tbMiazszosc.Size = new System.Drawing.Size(149, 20);
-            this.tbMiazszosc.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Miąższość [m]";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Współczynnik filtracji [m/d]";
-            // 
-            // tbWspFitracji
-            // 
-            this.tbWspFitracji.Location = new System.Drawing.Point(145, 73);
-            this.tbWspFitracji.Name = "tbWspFitracji";
-            this.tbWspFitracji.Size = new System.Drawing.Size(149, 20);
-            this.tbWspFitracji.TabIndex = 4;
-            // 
-            // btnKolor
-            // 
-            this.btnKolor.Location = new System.Drawing.Point(9, 107);
-            this.btnKolor.Name = "btnKolor";
-            this.btnKolor.Size = new System.Drawing.Size(285, 29);
-            this.btnKolor.TabIndex = 6;
-            this.btnKolor.Text = "Wybierz kolor";
-            this.btnKolor.UseVisualStyleBackColor = true;
-            this.btnKolor.Click += new System.EventHandler(this.btnKolor_Click);
-            // 
-            // btnDodaj
-            // 
-            this.btnDodaj.Location = new System.Drawing.Point(9, 206);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(285, 29);
-            this.btnDodaj.TabIndex = 7;
-            this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            // 
-            // btnEdytuj
-            // 
-            this.btnEdytuj.Location = new System.Drawing.Point(9, 241);
-            this.btnEdytuj.Name = "btnEdytuj";
-            this.btnEdytuj.Size = new System.Drawing.Size(285, 29);
-            this.btnEdytuj.TabIndex = 8;
-            this.btnEdytuj.Text = "Edytuj";
-            this.btnEdytuj.UseVisualStyleBackColor = true;
-            // 
-            // btnUsun
-            // 
-            this.btnUsun.Location = new System.Drawing.Point(9, 276);
-            this.btnUsun.Name = "btnUsun";
-            this.btnUsun.Size = new System.Drawing.Size(285, 29);
-            this.btnUsun.TabIndex = 9;
-            this.btnUsun.Text = "Usuń";
-            this.btnUsun.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(190, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Zwierciadło wody nawiercone [m.p.p.t]";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(175, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Zwierciadło wody ustalone [m.p.p.t]";
-            // 
-            // tbNawiercone
-            // 
-            this.tbNawiercone.Location = new System.Drawing.Point(9, 35);
-            this.tbNawiercone.Name = "tbNawiercone";
-            this.tbNawiercone.Size = new System.Drawing.Size(149, 20);
-            this.tbNawiercone.TabIndex = 3;
-            // 
-            // tbUstalone
-            // 
-            this.tbUstalone.Location = new System.Drawing.Point(9, 89);
-            this.tbUstalone.Name = "tbUstalone";
-            this.tbUstalone.Size = new System.Drawing.Size(149, 20);
-            this.tbUstalone.TabIndex = 4;
-            // 
-            // btnDodajZwierciadlo
-            // 
-            this.btnDodajZwierciadlo.Location = new System.Drawing.Point(20, 206);
-            this.btnDodajZwierciadlo.Name = "btnDodajZwierciadlo";
-            this.btnDodajZwierciadlo.Size = new System.Drawing.Size(285, 29);
-            this.btnDodajZwierciadlo.TabIndex = 7;
-            this.btnDodajZwierciadlo.Text = "Dodaj";
-            this.btnDodajZwierciadlo.UseVisualStyleBackColor = true;
-            // 
-            // btnUsunZwierciadlo
-            // 
-            this.btnUsunZwierciadlo.Location = new System.Drawing.Point(20, 241);
-            this.btnUsunZwierciadlo.Name = "btnUsunZwierciadlo";
-            this.btnUsunZwierciadlo.Size = new System.Drawing.Size(285, 29);
-            this.btnUsunZwierciadlo.TabIndex = 10;
-            this.btnUsunZwierciadlo.Text = "Usuń";
-            this.btnUsunZwierciadlo.UseVisualStyleBackColor = true;
+            this.btnRaport.Location = new System.Drawing.Point(30, 671);
+            this.btnRaport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRaport.Name = "btnRaport";
+            this.btnRaport.Size = new System.Drawing.Size(428, 45);
+            this.btnRaport.TabIndex = 12;
+            this.btnRaport.Text = "Utwórz raport";
+            this.btnRaport.UseVisualStyleBackColor = true;
             // 
             // btnRysuj
             // 
-            this.btnRysuj.Location = new System.Drawing.Point(20, 401);
+            this.btnRysuj.Location = new System.Drawing.Point(30, 617);
+            this.btnRysuj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRysuj.Name = "btnRysuj";
-            this.btnRysuj.Size = new System.Drawing.Size(285, 29);
+            this.btnRysuj.Size = new System.Drawing.Size(428, 45);
             this.btnRysuj.TabIndex = 11;
             this.btnRysuj.Text = "Rysuj profil";
             this.btnRysuj.UseVisualStyleBackColor = true;
             // 
-            // btnRaport
+            // btnUsunZwierciadlo
             // 
-            this.btnRaport.Location = new System.Drawing.Point(20, 436);
-            this.btnRaport.Name = "btnRaport";
-            this.btnRaport.Size = new System.Drawing.Size(285, 29);
-            this.btnRaport.TabIndex = 12;
-            this.btnRaport.Text = "Utwórz raport";
-            this.btnRaport.UseVisualStyleBackColor = true;
+            this.btnUsunZwierciadlo.Location = new System.Drawing.Point(30, 371);
+            this.btnUsunZwierciadlo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUsunZwierciadlo.Name = "btnUsunZwierciadlo";
+            this.btnUsunZwierciadlo.Size = new System.Drawing.Size(428, 45);
+            this.btnUsunZwierciadlo.TabIndex = 10;
+            this.btnUsunZwierciadlo.Text = "Usuń";
+            this.btnUsunZwierciadlo.UseVisualStyleBackColor = true;
+            // 
+            // btnDodajZwierciadlo
+            // 
+            this.btnDodajZwierciadlo.Location = new System.Drawing.Point(30, 317);
+            this.btnDodajZwierciadlo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDodajZwierciadlo.Name = "btnDodajZwierciadlo";
+            this.btnDodajZwierciadlo.Size = new System.Drawing.Size(428, 45);
+            this.btnDodajZwierciadlo.TabIndex = 7;
+            this.btnDodajZwierciadlo.Text = "Dodaj";
+            this.btnDodajZwierciadlo.UseVisualStyleBackColor = true;
+            // 
+            // tbUstalone
+            // 
+            this.tbUstalone.Location = new System.Drawing.Point(14, 137);
+            this.tbUstalone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbUstalone.Name = "tbUstalone";
+            this.tbUstalone.Size = new System.Drawing.Size(222, 26);
+            this.tbUstalone.TabIndex = 4;
+            // 
+            // tbNawiercone
+            // 
+            this.tbNawiercone.Location = new System.Drawing.Point(14, 54);
+            this.tbNawiercone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbNawiercone.Name = "tbNawiercone";
+            this.tbNawiercone.Size = new System.Drawing.Size(222, 26);
+            this.tbNawiercone.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 112);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(254, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Zwierciadło wody ustalone [m.p.p.t]";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 29);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(274, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Zwierciadło wody nawiercone [m.p.p.t]";
             // 
             // gbSredni
             // 
             this.gbSredni.Controls.Add(this.btnWspFil);
             this.gbSredni.Controls.Add(this.label6);
             this.gbSredni.Controls.Add(this.tbSredniWspFiltracji);
-            this.gbSredni.Location = new System.Drawing.Point(649, 32);
+            this.gbSredni.Location = new System.Drawing.Point(974, 49);
+            this.gbSredni.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbSredni.Name = "gbSredni";
-            this.gbSredni.Size = new System.Drawing.Size(330, 153);
+            this.gbSredni.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbSredni.Size = new System.Drawing.Size(495, 235);
             this.gbSredni.TabIndex = 4;
             this.gbSredni.TabStop = false;
             this.gbSredni.Text = "Średni współczynnik filtracji";
             // 
-            // tbSredniWspFiltracji
-            // 
-            this.tbSredniWspFiltracji.Location = new System.Drawing.Point(6, 35);
-            this.tbSredniWspFiltracji.Name = "tbSredniWspFiltracji";
-            this.tbSredniWspFiltracji.Size = new System.Drawing.Size(149, 20);
-            this.tbSredniWspFiltracji.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(161, 38);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "[m/d]";
-            // 
             // btnWspFil
             // 
-            this.btnWspFil.Location = new System.Drawing.Point(27, 107);
+            this.btnWspFil.Location = new System.Drawing.Point(40, 165);
+            this.btnWspFil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnWspFil.Name = "btnWspFil";
-            this.btnWspFil.Size = new System.Drawing.Size(285, 29);
+            this.btnWspFil.Size = new System.Drawing.Size(428, 45);
             this.btnWspFil.TabIndex = 8;
             this.btnWspFil.Text = "Oblicz";
             this.btnWspFil.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(242, 58);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "[m/d]";
+            // 
+            // tbSredniWspFiltracji
+            // 
+            this.tbSredniWspFiltracji.Location = new System.Drawing.Point(9, 54);
+            this.tbSredniWspFiltracji.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbSredniWspFiltracji.Name = "tbSredniWspFiltracji";
+            this.tbSredniWspFiltracji.Size = new System.Drawing.Size(222, 26);
+            this.tbSredniWspFiltracji.TabIndex = 5;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 816);
+            this.ClientSize = new System.Drawing.Size(1486, 1028);
             this.Controls.Add(this.gbSredni);
             this.Controls.Add(this.gbProfil);
             this.Controls.Add(this.gbWarstwa);
             this.Controls.Add(this.lvProfil);
             this.Controls.Add(this.studniaPictureBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Profil studni";
             this.Load += new System.EventHandler(this.Form1_Load);

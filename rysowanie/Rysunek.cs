@@ -117,7 +117,7 @@ namespace rysowanie
                 (int)(PrzeuniecieX * _obrazek.Width),
                 (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY,
                 (int)(_obrazek.Width - (PrzeuniecieX * _obrazek.Width) * 2),
-                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2))
+                (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2))+1
                 );
             _g.FillRectangle(warstwa.Grafika, prostokat);
             _g.DrawString(warstwa.Nazwa, czcionka, Brushes.Black, prostokat);
