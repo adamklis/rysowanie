@@ -15,6 +15,8 @@ namespace rysowanie
         private double _glebokoscStropu=0;
         private double _glebokoscSpagu=0;
         private Brush _grafika;
+        private int _id;
+        private static int _warstwaCounter=0;
 
         public string Nazwa{  get { return _nazwa; }  }
         public double Miazszosc { get { return _miazszosc; } }
@@ -34,6 +36,9 @@ namespace rysowanie
             }
         }
 
+        public int Id { get { return _id; } }
+        
+
         public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu, double miazszosc)
         {
             _grafika = grafika;
@@ -43,6 +48,8 @@ namespace rysowanie
             _glebokoscStropu= glebokoscStropu;
             _glebokoscSpagu= glebokoscSpagu;
             _miazszosc = miazszosc;
+            _id = _warstwaCounter;
+            _warstwaCounter++;
         }
 
         public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double miazszosc)
@@ -53,6 +60,8 @@ namespace rysowanie
             _wspolczynnikFiltracji = wspolczynnikFiltracji;
             _glebokoscStropu = 0;
             _glebokoscSpagu = 0;
+            _id = _warstwaCounter;
+            _warstwaCounter++;
         }
 
         public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu)
@@ -63,7 +72,8 @@ namespace rysowanie
             _wspolczynnikFiltracji = wspolczynnikFiltracji;
             _glebokoscStropu = glebokoscStropu;
             _glebokoscSpagu = glebokoscSpagu;
-            
+            _id = _warstwaCounter;
+            _warstwaCounter++;
         }
 
         //public Warstwa(Brush grafika, string nazwa, double wspolczynnikFiltracji)
