@@ -62,7 +62,7 @@ namespace rysowanie
             _glebokoscStropu = 0;
             _glebokoscSpagu = 0;
             _id = _warstwaCounter;
-            _warstwaCounter++;
+          //  _warstwaCounter++;
         }
 
         public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu)
@@ -74,7 +74,7 @@ namespace rysowanie
             _glebokoscStropu = glebokoscStropu;
             _glebokoscSpagu = glebokoscSpagu;
             _id = _warstwaCounter;
-            _warstwaCounter++;
+          //  _warstwaCounter++;
         }
 
     }
