@@ -85,11 +85,21 @@ namespace rysowanie
           
 
         }
-       //TODO UsunWarstwe() Do poprawienia!!
+       
         public void UsunWarstwe(int indeks) 
         {
-            Warstwy.RemoveAt(indeks);
+            Warstwy.Remove(_warstwy.FirstOrDefault(t => t.Id == indeks));
             Przelicz(); 
+        }
+
+        public void EdytujWarstwe(Warstwa warstwa)
+        {
+            Warstwa znalezionaWarstwa=_warstwy.FirstOrDefault(t => t.Id == warstwa.Id);
+            if (znalezionaWarstwa != null)
+            {
+                znalezionaWarstwa = warstwa;
+            }
+            Przelicz();
         }
 
         private void Przelicz()
