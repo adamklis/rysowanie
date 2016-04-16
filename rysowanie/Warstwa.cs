@@ -14,16 +14,10 @@ namespace rysowanie
         private double _wspolczynnikFiltracji;
         private double _glebokoscStropu=0;
         private double _glebokoscSpagu=0;
-        private Brush _grafika;
         private Color _kolor;
         private int _id;
         private static int _warstwaCounter=0;
-
-        public string Nazwa{  get { return _nazwa; }  }
-        public double Miazszosc { get { return _miazszosc; } }
-        public double WspolczynnikFiltracji { get { return _wspolczynnikFiltracji; } }
-        public double GlebokoscStropu { get { return _glebokoscStropu; } }
-        public double GlebokoscSpagu { get { return _glebokoscSpagu; } }
+        
         public Color Kolor
         {
             get
@@ -38,17 +32,81 @@ namespace rysowanie
         }
 
         public int Id { get { return _id; } }
-        
+
+        public string Nazwa
+        {
+            get
+            {
+                return _nazwa;
+            }
+
+            set
+            {
+                _nazwa = value;
+            }
+        }
+
+        public double Miazszosc
+        {
+            get
+            {
+                return _miazszosc;
+            }
+
+            set
+            {
+                _miazszosc = value;
+            }
+        }
+
+        public double WspolczynnikFiltracji
+        {
+            get
+            {
+                return _wspolczynnikFiltracji;
+            }
+
+            set
+            {
+                _wspolczynnikFiltracji = value;
+            }
+        }
+
+        public double GlebokoscStropu
+        {
+            get
+            {
+                return _glebokoscStropu;
+            }
+
+            set
+            {
+                _glebokoscStropu = value;
+            }
+        }
+
+        public double GlebokoscSpagu
+        {
+            get
+            {
+                return _glebokoscSpagu;
+            }
+
+            set
+            {
+                _glebokoscSpagu = value;
+            }
+        }
 
         public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu, double miazszosc)
         {
             _kolor=kolor;
-            _nazwa = nazwa;
-            _miazszosc= (double)(glebokoscSpagu-glebokoscStropu);
-            _wspolczynnikFiltracji= wspolczynnikFiltracji;
-            _glebokoscStropu= glebokoscStropu;
-            _glebokoscSpagu= glebokoscSpagu;
-            _miazszosc = miazszosc;
+            Nazwa = nazwa;
+            Miazszosc= (double)(glebokoscSpagu-glebokoscStropu);
+            WspolczynnikFiltracji= wspolczynnikFiltracji;
+            GlebokoscStropu= glebokoscStropu;
+            GlebokoscSpagu= glebokoscSpagu;
+            Miazszosc = miazszosc;
             _id = _warstwaCounter;
             _warstwaCounter++;
         }
@@ -56,11 +114,11 @@ namespace rysowanie
         public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double miazszosc)
         {
             _kolor = kolor;
-            _nazwa = nazwa;
-            _miazszosc = miazszosc;
-            _wspolczynnikFiltracji = wspolczynnikFiltracji;
-            _glebokoscStropu = 0;
-            _glebokoscSpagu = 0;
+            Nazwa = nazwa;
+            Miazszosc = miazszosc;
+            WspolczynnikFiltracji = wspolczynnikFiltracji;
+            GlebokoscStropu = 0;
+            GlebokoscSpagu = 0;
             _id = _warstwaCounter;
           //  _warstwaCounter++;
         }
@@ -68,11 +126,11 @@ namespace rysowanie
         public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu)
         {
             _kolor = kolor;
-            _nazwa = nazwa;
-            _miazszosc = glebokoscSpagu - glebokoscStropu;
-            _wspolczynnikFiltracji = wspolczynnikFiltracji;
-            _glebokoscStropu = glebokoscStropu;
-            _glebokoscSpagu = glebokoscSpagu;
+            Nazwa = nazwa;
+            Miazszosc = glebokoscSpagu - glebokoscStropu;
+            WspolczynnikFiltracji = wspolczynnikFiltracji;
+            GlebokoscStropu = glebokoscStropu;
+            GlebokoscSpagu = glebokoscSpagu;
             _id = _warstwaCounter;
           //  _warstwaCounter++;
         }

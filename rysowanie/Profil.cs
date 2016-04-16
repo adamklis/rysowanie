@@ -88,9 +88,19 @@ namespace rysowanie
        //TODO UsunWarstwe() Do poprawienia!!
         public void UsunWarstwe(int indeks) 
         {
-            _glebokosc -=(double) (_warstwy[indeks].GlebokoscSpagu - _warstwy[indeks].GlebokoscSpagu);
             Warstwy.RemoveAt(indeks);
-            
+            Przelicz(); 
+        }
+
+        private void Przelicz()
+        {
+            _glebokosc = 0;
+            foreach (Warstwa warstwa in _warstwy)
+            {
+                warstwa.GlebokoscStropu = Glebokosc;
+                warstwa.GlebokoscSpagu = warstwa.GlebokoscStropu + warstwa.Miazszosc;
+                _glebokosc = warstwa.GlebokoscSpagu;
+            }
         }
 
     }

@@ -34,13 +34,13 @@ namespace rysowanie
             _profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 200));
             _profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 100));
             _profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 300));
-
+            _profil.UsunWarstwe(2);
 
             //profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 0, 100));
             //profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 100, 300));
             //profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 300, 400));
             //profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 400, 690));
-            //profil.UsunWarstwe(2);
+
 
             rysunek.RysujProfil(_profil);
             PrzeladujLv(_profil);
