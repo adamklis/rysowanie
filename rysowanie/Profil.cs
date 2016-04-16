@@ -101,7 +101,7 @@ namespace rysowanie
                 _warstwy.RemoveAt(indexWarstwy);
                 _warstwy.Insert(indexWarstwy, warstwa);
             }
-            Przelicz();
+            Przelicz(); 
         }
 
         private void Przelicz()
