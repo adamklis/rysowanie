@@ -90,10 +90,24 @@ namespace rysowanie
             double wspFiltracji;
             if (ProfilWalidacja.MiazszoscWalidacja(tbMiazszosc.Text, out miazszosc) &&
                 ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji) &&
-                ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa))
+                ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa) && lvProfil.SelectedItems.Count == 1)
             {
-                Warstwa warstwa = new Warstwa(_selectedColor, nazwa, wspFiltracji, miazszosc);
-                EdytujWarstweLv(warstwa);
+                try
+                {
+                    Warstwa warstwa = new Warstwa(_selectedColor, nazwa, wspFiltracji, miazszosc);
+                    warstwa.Id = Convert.ToInt32(lvProfil.SelectedItems[0].Text);
+                    _profil.EdytujWarstwe(warstwa);
+                    rysunek.RysujProfil(_profil);
+                    studniaPictureBox.Image = rysunek.Obrazek;
+                    EdytujWarstweLv(warstwa);
+                    PrzeladujLv(_profil);
+                }
+                catch
+                {
+                    MessageBox.Show("Nie można edytować elementu", "Wystąpił błąd", MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                }
+
             }
             else
             {
