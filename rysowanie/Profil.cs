@@ -97,7 +97,9 @@ namespace rysowanie
             Warstwa znalezionaWarstwa=_warstwy.FirstOrDefault(t => t.Id == warstwa.Id);
             if (znalezionaWarstwa != null)
             {
-                znalezionaWarstwa = warstwa;
+               int indexWarstwy =_warstwy.IndexOf(znalezionaWarstwa);
+                _warstwy.RemoveAt(indexWarstwy);
+                _warstwy.Insert(indexWarstwy, warstwa);
             }
             Przelicz();
         }
