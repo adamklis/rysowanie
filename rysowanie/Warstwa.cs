@@ -119,8 +119,6 @@ namespace rysowanie
             WspolczynnikFiltracji = wspolczynnikFiltracji;
             GlebokoscStropu = 0;
             GlebokoscSpagu = 0;
-            _id = _warstwaCounter;
-          //  _warstwaCounter++;
         }
 
         public Warstwa(Color kolor, string nazwa, double wspolczynnikFiltracji, double glebokoscStropu, double glebokoscSpagu)
@@ -131,8 +129,6 @@ namespace rysowanie
             WspolczynnikFiltracji = wspolczynnikFiltracji;
             GlebokoscStropu = glebokoscStropu;
             GlebokoscSpagu = glebokoscSpagu;
-            _id = _warstwaCounter;
-          //  _warstwaCounter++;
         }
 
     }

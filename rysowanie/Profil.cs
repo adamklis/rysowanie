@@ -94,11 +94,10 @@ namespace rysowanie
 
         public void EdytujWarstwe(Warstwa warstwa)
         {
-            Warstwa znalezionaWarstwa=_warstwy.FirstOrDefault(t => t.Id == warstwa.Id);
-            if (znalezionaWarstwa != null)
-            {
-                znalezionaWarstwa = warstwa;
-            }
+            //Warstwa znalezionaWarstwa=_warstwy.FirstOrDefault(t => t.Id == warstwa.Id);
+            int id=_warstwy.IndexOf(warstwa);
+            _warstwy[id] = warstwa;
+            
             Przelicz();
         }
 
