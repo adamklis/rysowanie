@@ -104,7 +104,7 @@ namespace rysowanie
                 }
                 catch
                 {
-                    MessageBox.Show("Nie można edytować elementu", "Wystąpił błąd", MessageBoxButtons.OK,
+                    MessageBox.Show(@"Nie można edytować elementu", @"Wystąpił błąd", MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 }
 
