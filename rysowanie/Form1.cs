@@ -27,21 +27,11 @@ namespace rysowanie
             rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
 
             _profil = new Profil();
-            //_profil = profil;
-
-
             _profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 100));
             _profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 200));
             _profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 100));
             _profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 300));
             _profil.UsunWarstwe(2);
-
-            //profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 0, 100));
-            //profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 100, 300));
-            //profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 300, 400));
-            //profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 400, 690));
-
-
             rysunek.RysujProfil(_profil);
             PrzeladujLv(_profil);
 
@@ -134,7 +124,24 @@ namespace rysowanie
                 if (MessageBox.Show(@"Czy chcesz usunąć zaznaczoną warstwę?", @"Potwierdź", MessageBoxButtons.YesNo) ==
                     DialogResult.Yes)
                 {
-                    UsunWarstweLv();
+                    foreach (var selectedItem in lvProfil.SelectedItems)
+                    {
+                        try
+                        {
+                            _profil.UsunWarstwe(Convert.ToInt32(((ListViewItem)selectedItem).Text));
+                            UsunWarstweLv();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Nie można usunąć elementu", "Wystąpił błąd", MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                        }
+                       
+                    }
+                    PrzeladujLv(_profil);
+                    rysunek.RysujProfil(_profil);
+                    studniaPictureBox.Image = rysunek.Obrazek;
+
                 }
             }
         }
