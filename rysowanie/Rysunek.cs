@@ -11,6 +11,7 @@ namespace rysowanie
     class Rysunek
     {
         private int _dlugoscZwierciadla = 15;
+        private double _rozmiarTrojkata = 1.0;
         private int _interwalSkali = 50;
         private int _przesuniecieY = 25;
         private int _przeuniecieX = 100;
@@ -113,7 +114,6 @@ namespace rysowanie
                 _szerokoscProfilu = value;
             }
         }
-
         public int DlugoscZwierciadla
         {
             get
@@ -124,6 +124,18 @@ namespace rysowanie
             set
             {
                 _dlugoscZwierciadla = value;
+            }
+        }
+        public double RozmiarTrojkata
+        {
+            get
+            {
+                return _rozmiarTrojkata;
+            }
+
+            set
+            {
+                _rozmiarTrojkata = value;
             }
         }
 
@@ -193,8 +205,8 @@ namespace rysowanie
                     _g.DrawLine(Pens.Black, PrzeuniecieX - DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30, y);
                     Point[] punkty =
                     {
-                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30-10, y-16),
-                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30+10, y-16),
+                        new Point ((int)(PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30-10*RozmiarTrojkata), (int)(y-16*RozmiarTrojkata)),
+                        new Point ((int)(PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30+10*RozmiarTrojkata), (int)(y-16*RozmiarTrojkata)),
                         new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30, y)
                     };
                     _g.FillPolygon(Brushes.Black, punkty);
@@ -212,8 +224,8 @@ namespace rysowanie
                     _g.DrawLine(Pens.Black, PrzeuniecieX - DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla, y);
                     Point[] punkty =
                     {
-                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla-10, y-16),
-                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+10, y-16),
+                        new Point ((int)(PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla-10*RozmiarTrojkata), (int)(y-16*RozmiarTrojkata)),
+                        new Point ((int)(PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+10*RozmiarTrojkata), (int)(y-16*RozmiarTrojkata)),
                         new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla, y)
                     };
                     _g.DrawPolygon(Pens.Black, punkty);
