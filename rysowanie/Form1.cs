@@ -16,6 +16,7 @@ namespace rysowanie
         private Color _selectedColor = Color.Goldenrod;
         private Profil _profil;
         private Rysunek rysunek;
+        private List<WarstwaDb> _warstwaDbList; 
 
         public Form1()
         {
@@ -24,8 +25,13 @@ namespace rysowanie
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
+            _warstwaDbList = WarstwyDbDataAccess.GetData();
+            foreach (WarstwaDb warstwaDb in _warstwaDbList)
+            {
+                cbNazwa.Items.Add(warstwaDb.Nazwa);
+            }
 
+             rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
             _profil = new Profil();
             _profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 100));
             _profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 200));
