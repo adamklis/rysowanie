@@ -35,8 +35,7 @@ namespace rysowanie
             rysunek.RysujProfil(_profil);
             PrzeladujLv(_profil);
 
-            studniaPictureBox.Image=rysunek.Obrazek;
-
+            studniaPictureBox.Image = rysunek.Obrazek;
 
         }
 

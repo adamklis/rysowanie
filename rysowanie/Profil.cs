@@ -9,8 +9,8 @@ namespace rysowanie
     public class Profil
     {
         private List<Warstwa> _warstwy;
-        private double _zwierciadloUstalone;
-        private double _zwierciadloNawiercone;
+        private double _zwierciadloUstalone=-1;
+        private double _zwierciadloNawiercone=-1;
         private double _glebokosc;
 
         internal List<Warstwa> Warstwy

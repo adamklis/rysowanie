@@ -154,7 +154,8 @@ namespace rysowanie
             }
 
             RysujSkale(profil, InterwalSkali);
-
+            RysujZwierciadloUstalone(profil);
+            RysujZwierciadloNawiercone(profil);
         }
 
 
@@ -172,6 +173,24 @@ namespace rysowanie
                 _g.DrawLine(Pens.Black, PrzeuniecieOsi-5, (int)i, PrzeuniecieOsi + 5, (int)i);    //poziome linie
                 _g.DrawString(text.ToString(), czcionka,Brushes.Black, PrzeuniecieLiczbOsi, (float)i-RozmiarCzcionki/2);   //TEKST
                 text += skala;
+            }
+        }
+        public void RysujZwierciadloUstalone(Profil profil)
+        {
+            if (profil.ZwierciadloUstalone != -1)
+            {
+                int y = (int)(profil.ZwierciadloUstalone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
+                _g.DrawLine(Pens.Black, PrzeuniecieX, y, PrzeuniecieX + SzerokoscProfilu, y);
+                //_g.DrawPolygon
+            }
+        }
+
+        public void RysujZwierciadloNawiercone(Profil profil)
+        {
+            if (profil.ZwierciadloNawiercone != -1)
+            {
+                int y = (int)(profil.ZwierciadloNawiercone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
+                _g.DrawLine(Pens.Black, PrzeuniecieX, y, PrzeuniecieX + SzerokoscProfilu, y);
             }
         }
 
