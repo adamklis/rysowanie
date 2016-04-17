@@ -60,6 +60,7 @@
             this.btnWspFil = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.tbSredniWspFiltracji = new System.Windows.Forms.TextBox();
+            this.panelColor = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.studniaPictureBox)).BeginInit();
             this.gbWarstwa.SuspendLayout();
             this.gbProfil.SuspendLayout();
@@ -70,7 +71,7 @@
             // 
             this.studniaPictureBox.BackColor = System.Drawing.Color.White;
             this.studniaPictureBox.Location = new System.Drawing.Point(647, 349);
-            this.studniaPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studniaPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.studniaPictureBox.Name = "studniaPictureBox";
             this.studniaPictureBox.Size = new System.Drawing.Size(333, 455);
             this.studniaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -129,6 +130,7 @@
             // 
             // gbWarstwa
             // 
+            this.gbWarstwa.Controls.Add(this.panelColor);
             this.gbWarstwa.Controls.Add(this.btnUsun);
             this.gbWarstwa.Controls.Add(this.btnEdytuj);
             this.gbWarstwa.Controls.Add(this.btnDodaj);
@@ -148,7 +150,7 @@
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(9, 276);
+            this.btnUsun.Location = new System.Drawing.Point(6, 339);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(285, 29);
             this.btnUsun.TabIndex = 9;
@@ -158,7 +160,7 @@
             // 
             // btnEdytuj
             // 
-            this.btnEdytuj.Location = new System.Drawing.Point(9, 241);
+            this.btnEdytuj.Location = new System.Drawing.Point(6, 304);
             this.btnEdytuj.Name = "btnEdytuj";
             this.btnEdytuj.Size = new System.Drawing.Size(285, 29);
             this.btnEdytuj.TabIndex = 8;
@@ -168,7 +170,7 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(9, 206);
+            this.btnDodaj.Location = new System.Drawing.Point(6, 269);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(285, 29);
             this.btnDodaj.TabIndex = 7;
@@ -234,6 +236,7 @@
             this.cbNazwa.Name = "cbNazwa";
             this.cbNazwa.Size = new System.Drawing.Size(149, 21);
             this.cbNazwa.TabIndex = 0;
+            this.cbNazwa.SelectedIndexChanged += new System.EventHandler(this.cbNazwa_SelectedIndexChanged);
             // 
             // gbProfil
             // 
@@ -357,6 +360,14 @@
             this.tbSredniWspFiltracji.Size = new System.Drawing.Size(149, 20);
             this.tbSredniWspFiltracji.TabIndex = 5;
             // 
+            // panelColor
+            // 
+            this.panelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelColor.Location = new System.Drawing.Point(9, 142);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(282, 100);
+            this.panelColor.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,7 +378,7 @@
             this.Controls.Add(this.gbWarstwa);
             this.Controls.Add(this.lvProfil);
             this.Controls.Add(this.studniaPictureBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Profil studni";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -416,6 +427,7 @@
         private System.Windows.Forms.Button btnWspFil;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbSredniWspFiltracji;
+        private System.Windows.Forms.Panel panelColor;
     }
 }
 
