@@ -38,6 +38,8 @@ namespace rysowanie
             _profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 100));
             _profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 300));
             _profil.UsunWarstwe(2);
+            _profil.ZwierciadloNawiercone =90;
+            _profil.ZwierciadloUstalone = 50;
             rysunek.RysujProfil(_profil);
             PrzeladujLv(_profil);
 

@@ -10,6 +10,7 @@ namespace rysowanie
 {
     class Rysunek
     {
+        private int _dlugoscZwierciadla = 20;
         private int _interwalSkali = 50;
         private int _przesuniecieY = 25;
         private int _przeuniecieX = 100;
@@ -113,6 +114,19 @@ namespace rysowanie
             }
         }
 
+        public int DlugoscZwierciadla
+        {
+            get
+            {
+                return _dlugoscZwierciadla;
+            }
+
+            set
+            {
+                _dlugoscZwierciadla = value;
+            }
+        }
+
         public Rysunek (int x,int y)
         {
             _obrazek = new Bitmap(x, y);
@@ -180,7 +194,7 @@ namespace rysowanie
             if (profil.ZwierciadloUstalone != -1)
             {
                 int y = (int)(profil.ZwierciadloUstalone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
-                _g.DrawLine(Pens.Black, PrzeuniecieX, y, PrzeuniecieX + SzerokoscProfilu, y);
+                _g.DrawLine(Pens.Black, PrzeuniecieX-DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu+ DlugoscZwierciadla, y);
                 //_g.DrawPolygon
             }
         }
@@ -190,7 +204,7 @@ namespace rysowanie
             if (profil.ZwierciadloNawiercone != -1)
             {
                 int y = (int)(profil.ZwierciadloNawiercone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
-                _g.DrawLine(Pens.Black, PrzeuniecieX, y, PrzeuniecieX + SzerokoscProfilu, y);
+                _g.DrawLine(Pens.Black, PrzeuniecieX - DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla, y);
             }
         }
 
