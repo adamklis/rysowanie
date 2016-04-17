@@ -15,7 +15,7 @@ namespace rysowanie
 
         private Color _selectedColor = Color.Goldenrod;
         private Profil _profil;
-        private Rysunek rysunek;
+        private Rysunek _rysunek;
         private List<WarstwaDb> _warstwaDbList; 
 
         public Form1()
@@ -26,22 +26,23 @@ namespace rysowanie
         private void Form1_Load(object sender, EventArgs e)
         {
             _warstwaDbList = WarstwyDbDataAccess.GetData();
+            panelColor.BackColor = _selectedColor;
             foreach (WarstwaDb warstwaDb in _warstwaDbList)
             {
                 cbNazwa.Items.Add(warstwaDb.Nazwa);
             }
 
-             rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
+             _rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
             _profil = new Profil();
             _profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 100));
             _profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 200));
             _profil.NowaWarstwa(new Warstwa(Color.Blue, "trzecia", 23, 100));
             _profil.NowaWarstwa(new Warstwa(Color.Yellow, "czwarta", 23, 300));
             _profil.UsunWarstwe(2);
-            rysunek.RysujProfil(_profil);
+            _rysunek.RysujProfil(_profil);
             PrzeladujLv(_profil);
 
-            studniaPictureBox.Image = rysunek.Obrazek;
+            studniaPictureBox.Image = _rysunek.Obrazek;
 
         }
 
@@ -51,6 +52,7 @@ namespace rysowanie
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 _selectedColor = colorDialog.Color;
+                panelColor.BackColor = _selectedColor;
             }
         }
 
@@ -65,8 +67,8 @@ namespace rysowanie
             {
                 Warstwa warstwa = new Warstwa(_selectedColor, nazwa, wspFiltracji, miazszosc);
                 warstwa = _profil.NowaWarstwa(warstwa);
-                rysunek.RysujProfil(_profil);
-                studniaPictureBox.Image = rysunek.Obrazek;
+                _rysunek.RysujProfil(_profil);
+                studniaPictureBox.Image = _rysunek.Obrazek;
                 DodajWarstweLv(warstwa);
             }
             else
@@ -102,8 +104,8 @@ namespace rysowanie
                     Warstwa warstwa = new Warstwa(_selectedColor, nazwa, wspFiltracji, miazszosc);
                     warstwa.Id = Convert.ToInt32(lvProfil.SelectedItems[0].Text);
                     _profil.EdytujWarstwe(warstwa);
-                    rysunek.RysujProfil(_profil);
-                    studniaPictureBox.Image = rysunek.Obrazek;
+                    _rysunek.RysujProfil(_profil);
+                    studniaPictureBox.Image = _rysunek.Obrazek;
                     EdytujWarstweLv(warstwa);
                     PrzeladujLv(_profil);
                 }
@@ -158,8 +160,8 @@ namespace rysowanie
                        
                     }
                     PrzeladujLv(_profil);
-                    rysunek.RysujProfil(_profil);
-                    studniaPictureBox.Image = rysunek.Obrazek;
+                    _rysunek.RysujProfil(_profil);
+                    studniaPictureBox.Image = _rysunek.Obrazek;
 
                 }
             }
@@ -197,6 +199,19 @@ namespace rysowanie
                     tbWspFitracji.Text = warstwa.WspolczynnikFiltracji.ToString();
                     _selectedColor = warstwa.Kolor;
                 }
+
+            }
+        }
+
+        private void cbNazwa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_warstwaDbList.Count>cbNazwa.SelectedIndex && cbNazwa.SelectedIndex != -1)
+            {
+                WarstwaDb warstwaDb = _warstwaDbList[cbNazwa.SelectedIndex];
+                tbMiazszosc.Text = warstwaDb.Miazszosc.ToString();
+                tbWspFitracji.Text = warstwaDb.WspFiltracji.ToString();
+                _selectedColor = Color.FromArgb(warstwaDb.KolorA, warstwaDb.KolorR, warstwaDb.KolorG, warstwaDb.KolorB);
+                panelColor.BackColor = _selectedColor;
 
             }
         }
