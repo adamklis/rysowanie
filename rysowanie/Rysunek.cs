@@ -10,7 +10,7 @@ namespace rysowanie
 {
     class Rysunek
     {
-        private int _dlugoscZwierciadla = 20;
+        private int _dlugoscZwierciadla = 15;
         private int _interwalSkali = 50;
         private int _przesuniecieY = 25;
         private int _przeuniecieX = 100;
@@ -141,13 +141,7 @@ namespace rysowanie
             SolidBrush pedzel = new SolidBrush(warstwa.Kolor);
             format.Alignment = StringAlignment.Center;
             format.LineAlignment = StringAlignment.Center;
-            //RectangleF prostokat = new RectangleF(
-            //    (int)(PrzeuniecieX * _obrazek.Width),
-            //    (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY,
-            //    (int)(_obrazek.Width - (PrzeuniecieX * _obrazek.Width) * 2),
-            //    (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2))+1
-            //    );
-
+            
             RectangleF prostokat = new RectangleF(
                 (int)(PrzeuniecieX),
                 (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY,
@@ -193,9 +187,18 @@ namespace rysowanie
         {
             if (profil.ZwierciadloUstalone != -1)
             {
-                int y = (int)(profil.ZwierciadloUstalone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
-                _g.DrawLine(Pens.Black, PrzeuniecieX-DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu+ DlugoscZwierciadla, y);
-                //_g.DrawPolygon
+                if (profil.Glebokosc != 0)
+                {
+                    int y = (int)(profil.ZwierciadloUstalone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
+                    _g.DrawLine(Pens.Black, PrzeuniecieX - DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30, y);
+                    Point[] punkty =
+                    {
+                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30-10, y-16),
+                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30+10, y-16),
+                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30, y)
+                    };
+                    _g.FillPolygon(Brushes.Black, punkty);
+                }
             }
         }
 
@@ -203,8 +206,18 @@ namespace rysowanie
         {
             if (profil.ZwierciadloNawiercone != -1)
             {
-                int y = (int)(profil.ZwierciadloNawiercone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
-                _g.DrawLine(Pens.Black, PrzeuniecieX - DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla, y);
+                if (profil.Glebokosc != 0)
+                {
+                    int y = (int)(profil.ZwierciadloNawiercone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
+                    _g.DrawLine(Pens.Black, PrzeuniecieX - DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla, y);
+                    Point[] punkty =
+                    {
+                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla-10, y-16),
+                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+10, y-16),
+                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla, y)
+                    };
+                    _g.DrawPolygon(Pens.Black, punkty);
+                }
             }
         }
 
