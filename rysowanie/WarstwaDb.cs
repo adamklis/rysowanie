@@ -6,8 +6,8 @@ namespace rysowanie
     {
         public int Id { get; set; }
         public string Nazwa { get; set; }
-        public double Miazszosc { get; set; }
-        public double WspFiltracji { get; set; }
+        public float Miazszosc { get; set; }
+        public float WspFiltracji { get; set; }
         public int KolorA { get; set; }
         public int KolorR { get; set; }
         public int KolorG { get; set; }

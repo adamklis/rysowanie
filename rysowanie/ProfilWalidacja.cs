@@ -32,6 +32,24 @@
 
         }
 
+
+        public static bool MiazszoscWalidacja(string miazszoscString, out float miazszoscFloat)
+        {
+            bool isValid = false;
+            float miazszosc;
+            miazszoscFloat = 0;
+            if (float.TryParse(miazszoscString, out miazszosc))
+            {
+                if (miazszosc >= 0.1 && miazszosc <= 300)
+                {
+                    isValid = true;
+                    miazszoscFloat = miazszosc;
+                }
+            }
+            return isValid;
+
+        }
+
         public static bool WspFiltracjiWalidacja(string wspFiltracjiString, out double wspFiltracjiDouble)
         {
             bool isValid = false;
@@ -39,7 +57,7 @@
             wspFiltracjiDouble = 0;
             if (double.TryParse(wspFiltracjiString, out wspFiltracji))
             {
-                if (wspFiltracji >= 0.0000001 && wspFiltracji <= 200)
+                if (wspFiltracji >= 0.0000001 && wspFiltracji <= 400)
                 {
                     isValid = true;
                     wspFiltracjiDouble = wspFiltracji;
@@ -48,6 +66,24 @@
             return isValid;
 
         }
+
+        public static bool WspFiltracjiWalidacja(string wspFiltracjiString, out float wspFiltracjiFloat)
+        {
+            bool isValid = false;
+            float wspFiltracji;
+            wspFiltracjiFloat = 0;
+            if (float.TryParse(wspFiltracjiString, out wspFiltracji))
+            {
+                if (wspFiltracji >= 0.00000001 && wspFiltracji <= 400)
+                {
+                    isValid = true;
+                    wspFiltracjiFloat = wspFiltracji;
+                }
+            }
+            return isValid;
+
+        }
+
 
         public static bool ZwierciadloWalidacja(string glebokoscZwierciadlaString, out double glebokoscZwierciadlaDouble)
         {
