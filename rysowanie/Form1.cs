@@ -217,5 +217,13 @@ namespace rysowanie
 
             }
         }
+
+        private void btnWlasciwosciProfilu_Click(object sender, EventArgs e)
+        {
+            PictureBox obrazek = studniaPictureBox;
+            Button btnWlasciwosci = btnWlasciwosciProfilu;
+            WlasciwosciForm form = new WlasciwosciForm(_rysunek,_profil,obrazek, btnWlasciwosci);
+            form.Show();
+        }
     }
 }

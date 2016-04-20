@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -8,20 +9,21 @@ using System.Windows.Forms;
 
 namespace rysowanie
 {
-    class Rysunek
+    public class Rysunek
     {
-        private int _dlugoscZwierciadla = 15;
+        private int _dlugoscZwierciadla = 13;
         private double _rozmiarTrojkata = 1.0;
         private int _interwalSkali = 50;
         private int _przesuniecieY = 25;
-        private int _przeuniecieX = 100;
+        private int _przeuniecieX = 130;
         private int _szerokoscProfilu = 150;
         private int _przeuniecieOsi = 60;
         private int _przeuniecieLiczbOsi = 10;
         private int _rozmiarCzcionki = 13;
         private Bitmap _obrazek;
         private Graphics _g;
-        
+
+        [Browsable(false)]
         public Bitmap Obrazek
         {
             get
@@ -29,7 +31,7 @@ namespace rysowanie
                 return _obrazek;
             }
         }
-
+        
         public int PrzesuniecieY
         {
             get
@@ -164,6 +166,7 @@ namespace rysowanie
             _g.FillRectangle(pedzel, prostokat);
             _g.DrawString(warstwa.Nazwa, czcionka, Brushes.Black, prostokat);
             _g.DrawString(warstwa.WspolczynnikFiltracji+"[m/d]", czcionka, Brushes.Black, prostokat,format);
+            _g.DrawString(warstwa.Miazszosc + "[m]", czcionka, Brushes.Black, prostokat.Left-65, prostokat.Top + (prostokat.Bottom - prostokat.Top)/2-RozmiarCzcionki);
         }       
         public void RysujProfil(Profil profil)
         {
