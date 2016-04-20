@@ -37,6 +37,8 @@
             this.Strop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Spag = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbWarstwa = new System.Windows.Forms.GroupBox();
+            this.btnEdytujUstawienia = new System.Windows.Forms.Button();
+            this.btnZapiszUstawienia = new System.Windows.Forms.Button();
             this.panelColor = new System.Windows.Forms.Panel();
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnEdytuj = new System.Windows.Forms.Button();
@@ -131,6 +133,8 @@
             // 
             // gbWarstwa
             // 
+            this.gbWarstwa.Controls.Add(this.btnEdytujUstawienia);
+            this.gbWarstwa.Controls.Add(this.btnZapiszUstawienia);
             this.gbWarstwa.Controls.Add(this.panelColor);
             this.gbWarstwa.Controls.Add(this.btnUsun);
             this.gbWarstwa.Controls.Add(this.btnEdytuj);
@@ -151,21 +155,39 @@
             this.gbWarstwa.TabStop = false;
             this.gbWarstwa.Text = "Warstwa";
             // 
+            // btnEdytujUstawienia
+            // 
+            this.btnEdytujUstawienia.Location = new System.Drawing.Point(9, 436);
+            this.btnEdytujUstawienia.Name = "btnEdytujUstawienia";
+            this.btnEdytujUstawienia.Size = new System.Drawing.Size(282, 29);
+            this.btnEdytujUstawienia.TabIndex = 12;
+            this.btnEdytujUstawienia.Text = "Edytuj ustawienia warstwy";
+            this.btnEdytujUstawienia.UseVisualStyleBackColor = true;
+            this.btnEdytujUstawienia.Click += new System.EventHandler(this.btnEdytujUstawienia_Click);
+            // 
+            // btnZapiszUstawienia
+            // 
+            this.btnZapiszUstawienia.Location = new System.Drawing.Point(9, 401);
+            this.btnZapiszUstawienia.Name = "btnZapiszUstawienia";
+            this.btnZapiszUstawienia.Size = new System.Drawing.Size(282, 29);
+            this.btnZapiszUstawienia.TabIndex = 11;
+            this.btnZapiszUstawienia.Text = "Zapisz ustawienia warstwy";
+            this.btnZapiszUstawienia.UseVisualStyleBackColor = true;
+            this.btnZapiszUstawienia.Click += new System.EventHandler(this.btnZapiszUstawienia_Click);
+            // 
             // panelColor
             // 
             this.panelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelColor.Location = new System.Drawing.Point(14, 218);
-            this.panelColor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelColor.Location = new System.Drawing.Point(9, 142);
             this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(422, 153);
+            this.panelColor.Size = new System.Drawing.Size(282, 100);
             this.panelColor.TabIndex = 10;
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(9, 522);
-            this.btnUsun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUsun.Location = new System.Drawing.Point(9, 318);
             this.btnUsun.Name = "btnUsun";
-            this.btnUsun.Size = new System.Drawing.Size(428, 45);
+            this.btnUsun.Size = new System.Drawing.Size(282, 29);
             this.btnUsun.TabIndex = 9;
             this.btnUsun.Text = "Usuń";
             this.btnUsun.UseVisualStyleBackColor = true;
@@ -173,10 +195,9 @@
             // 
             // btnEdytuj
             // 
-            this.btnEdytuj.Location = new System.Drawing.Point(9, 468);
-            this.btnEdytuj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEdytuj.Location = new System.Drawing.Point(9, 283);
             this.btnEdytuj.Name = "btnEdytuj";
-            this.btnEdytuj.Size = new System.Drawing.Size(428, 45);
+            this.btnEdytuj.Size = new System.Drawing.Size(282, 29);
             this.btnEdytuj.TabIndex = 8;
             this.btnEdytuj.Text = "Edytuj";
             this.btnEdytuj.UseVisualStyleBackColor = true;
@@ -184,10 +205,9 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(9, 414);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDodaj.Location = new System.Drawing.Point(9, 248);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(428, 45);
+            this.btnDodaj.Size = new System.Drawing.Size(282, 29);
             this.btnDodaj.TabIndex = 7;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -467,6 +487,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbSredniWspFiltracji;
         private System.Windows.Forms.Panel panelColor;
+        private System.Windows.Forms.Button btnEdytujUstawienia;
+        private System.Windows.Forms.Button btnZapiszUstawienia;
         private System.Windows.Forms.Button btnWlasciwosciProfilu;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace rysowanie
 {
@@ -47,6 +49,67 @@ namespace rysowanie
                 listaWarstw.Add(warstwaDb);
             }
             return listaWarstw;
+        }
+
+        public static bool InsertData(WarstwaDb warstwaDb)
+        {
+            bool areDataInserted = true;
+            try
+            {
+                WarstwyDBEntities warstwyDbEntities = new WarstwyDBEntities();
+                Warstwy warstwa = new Warstwy
+                {
+                    Nazwa = warstwaDb.Nazwa,
+                    Miazszosc = warstwaDb.Miazszosc,
+                    WspFiltracji = warstwaDb.WspFiltracji,
+                    Kolor_A = warstwaDb.KolorA,
+                    Kolor_R = warstwaDb.KolorR,
+                    Kolor_G = warstwaDb.KolorG,
+                    Kolor_B = warstwaDb.KolorB,
+                    Image = null
+                };
+                warstwyDbEntities.Warstwy.Add(warstwa);
+                
+                warstwyDbEntities.SaveChanges();
+               
+                
+
+            }
+            catch (Exception exception)
+            {
+                areDataInserted = false;
+            }
+
+            return areDataInserted;
+        }
+
+        public static bool EditData(WarstwaDb warstwaDb)
+        {
+            bool areDataInserted = true;
+            try
+            {
+                WarstwyDBEntities warstwyDbEntities = new WarstwyDBEntities();
+
+                Warstwy warstwa = warstwyDbEntities.Warstwy.FirstOrDefault(t => t.Id == warstwaDb.Id);
+                if (warstwa != null)
+                {
+                    warstwa.Nazwa = warstwaDb.Nazwa;
+                    warstwa.Miazszosc = warstwaDb.Miazszosc;
+                    warstwa.WspFiltracji = warstwaDb.WspFiltracji;
+                    warstwa.Kolor_A = warstwaDb.KolorA;
+                    warstwa.Kolor_R = warstwaDb.KolorR;
+                    warstwa.Kolor_G = warstwaDb.KolorG;
+                    warstwa.Kolor_B = warstwaDb.KolorB;
+                    warstwa.Image = null;
+                    warstwyDbEntities.SaveChanges();
+                }
+            }
+            catch(Exception exception)
+            {
+                areDataInserted = false;
+            }
+
+            return areDataInserted;
         }
 
     }

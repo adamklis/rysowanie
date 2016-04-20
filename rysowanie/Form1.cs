@@ -25,14 +25,9 @@ namespace rysowanie
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _warstwaDbList = WarstwyDbDataAccess.GetData();
+            ReloadCbNazwa();
             panelColor.BackColor = _selectedColor;
-            foreach (WarstwaDb warstwaDb in _warstwaDbList)
-            {
-                cbNazwa.Items.Add(warstwaDb.Nazwa);
-            }
-
-             _rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
+            _rysunek = new Rysunek(studniaPictureBox.Width, studniaPictureBox.Height);
             _profil = new Profil();
             _profil.NowaWarstwa(new Warstwa(Color.Red, "pierwsza", 23, 100));
             _profil.NowaWarstwa(new Warstwa(Color.Green, "druga", 23, 200));
@@ -46,6 +41,16 @@ namespace rysowanie
 
             studniaPictureBox.Image = _rysunek.Obrazek;
 
+        }
+
+        private void ReloadCbNazwa()
+        {
+            cbNazwa.Items.Clear();
+            _warstwaDbList = WarstwyDbDataAccess.GetData();
+            foreach (WarstwaDb warstwaDb in _warstwaDbList)
+            {
+                cbNazwa.Items.Add(warstwaDb.Nazwa);
+            }
         }
 
         private void btnKolor_Click(object sender, EventArgs e)
@@ -144,7 +149,8 @@ namespace rysowanie
         {
             if (lvProfil.SelectedItems.Count != 0)
             {
-                if (MessageBox.Show(@"Czy chcesz usunąć zaznaczoną warstwę?", @"Potwierdź", MessageBoxButtons.YesNo) ==
+                if (MessageBox.Show(@"Czy chcesz usunąć zaznaczoną warstwę?", @"Potwierdź",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                     DialogResult.Yes)
                 {
                     foreach (var selectedItem in lvProfil.SelectedItems)
@@ -216,6 +222,101 @@ namespace rysowanie
                 panelColor.BackColor = _selectedColor;
 
             }
+        }
+
+        private void btnZapiszUstawienia_Click(object sender, EventArgs e)
+        {
+            string nazwa;
+            float miazszosc;
+            float wspFiltracji;
+
+
+            if (ProfilWalidacja.MiazszoscWalidacja(tbMiazszosc.Text, out miazszosc) &&
+                ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa) &&
+                ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji))
+            {
+                if (MessageBox.Show(@"Czy chcesz zapisać obecne ustawienia warstwy?", @"Potwierdź",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    WarstwaDb warstwaDb = new WarstwaDb
+                    {
+                        Nazwa = nazwa,
+                        Miazszosc = miazszosc,
+                        WspFiltracji = wspFiltracji,
+                        KolorA = _selectedColor.A,
+                        KolorR = _selectedColor.R,
+                        KolorG = _selectedColor.G,
+                        KolorB = _selectedColor.B,
+                        Image = null
+                    };
+                    if (WarstwyDbDataAccess.InsertData(warstwaDb))
+                    {
+                        ReloadCbNazwa();
+                        MessageBox.Show(@"Pomyślnie dodano bieżące ustawienia", @"Dodano ustawienia",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Bieżące ustawienia nie zostały dodane", @"Wystąpił nieznany błąd",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+           
+
+        }
+
+        private void btnEdytujUstawienia_Click(object sender, EventArgs e)
+        {
+            int id;
+            string nazwa;
+            float miazszosc;
+            float wspFiltracji;
+
+
+            if (ProfilWalidacja.MiazszoscWalidacja(tbMiazszosc.Text, out miazszosc) &&
+                ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa) &&
+                ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji) && cbNazwa.SelectedIndex!=-1)
+            {
+                if (MessageBox.Show(@"Czy chcesz nadpisać obecne ustawienia warstwy?", @"Potwierdź",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    id = _warstwaDbList.Find(t => t.Id == cbNazwa.SelectedIndex).Id;
+                    WarstwaDb warstwaDb = new WarstwaDb
+                    {
+                        Id = id,
+                        Nazwa = nazwa,
+                        Miazszosc = miazszosc,
+                        WspFiltracji = wspFiltracji,
+                        KolorA = _selectedColor.A,
+                        KolorR = _selectedColor.R,
+                        KolorG = _selectedColor.G,
+                        KolorB = _selectedColor.B,
+                        Image = null
+                    };
+                    if (WarstwyDbDataAccess.EditData(warstwaDb))
+                    {
+                        ReloadCbNazwa();
+                        MessageBox.Show(@"Pomyślnie zaktualizowano dane o litologii", @"Dodano ustawienia",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Dane o litologii nie zostały zaktualizowane", @"Wystąpił nieznany błąd",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+
+
+
+
         }
 
         private void btnWlasciwosciProfilu_Click(object sender, EventArgs e)
