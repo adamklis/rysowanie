@@ -157,9 +157,9 @@
             // 
             // btnEdytujUstawienia
             // 
-            this.btnEdytujUstawienia.Location = new System.Drawing.Point(9, 436);
+            this.btnEdytujUstawienia.Location = new System.Drawing.Point(14, 671);
             this.btnEdytujUstawienia.Name = "btnEdytujUstawienia";
-            this.btnEdytujUstawienia.Size = new System.Drawing.Size(282, 29);
+            this.btnEdytujUstawienia.Size = new System.Drawing.Size(426, 45);
             this.btnEdytujUstawienia.TabIndex = 12;
             this.btnEdytujUstawienia.Text = "Edytuj ustawienia warstwy";
             this.btnEdytujUstawienia.UseVisualStyleBackColor = true;
@@ -167,9 +167,9 @@
             // 
             // btnZapiszUstawienia
             // 
-            this.btnZapiszUstawienia.Location = new System.Drawing.Point(9, 401);
+            this.btnZapiszUstawienia.Location = new System.Drawing.Point(14, 617);
             this.btnZapiszUstawienia.Name = "btnZapiszUstawienia";
-            this.btnZapiszUstawienia.Size = new System.Drawing.Size(282, 29);
+            this.btnZapiszUstawienia.Size = new System.Drawing.Size(428, 45);
             this.btnZapiszUstawienia.TabIndex = 11;
             this.btnZapiszUstawienia.Text = "Zapisz ustawienia warstwy";
             this.btnZapiszUstawienia.UseVisualStyleBackColor = true;
@@ -178,16 +178,16 @@
             // panelColor
             // 
             this.panelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelColor.Location = new System.Drawing.Point(9, 142);
+            this.panelColor.Location = new System.Drawing.Point(14, 218);
             this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(282, 100);
+            this.panelColor.Size = new System.Drawing.Size(426, 62);
             this.panelColor.TabIndex = 10;
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(9, 318);
+            this.btnUsun.Location = new System.Drawing.Point(14, 422);
             this.btnUsun.Name = "btnUsun";
-            this.btnUsun.Size = new System.Drawing.Size(282, 29);
+            this.btnUsun.Size = new System.Drawing.Size(428, 45);
             this.btnUsun.TabIndex = 9;
             this.btnUsun.Text = "Usuń";
             this.btnUsun.UseVisualStyleBackColor = true;
@@ -195,9 +195,9 @@
             // 
             // btnEdytuj
             // 
-            this.btnEdytuj.Location = new System.Drawing.Point(9, 283);
+            this.btnEdytuj.Location = new System.Drawing.Point(14, 371);
             this.btnEdytuj.Name = "btnEdytuj";
-            this.btnEdytuj.Size = new System.Drawing.Size(282, 29);
+            this.btnEdytuj.Size = new System.Drawing.Size(428, 45);
             this.btnEdytuj.TabIndex = 8;
             this.btnEdytuj.Text = "Edytuj";
             this.btnEdytuj.UseVisualStyleBackColor = true;
@@ -205,9 +205,9 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(9, 248);
+            this.btnDodaj.Location = new System.Drawing.Point(14, 317);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(282, 29);
+            this.btnDodaj.Size = new System.Drawing.Size(428, 45);
             this.btnDodaj.TabIndex = 7;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;

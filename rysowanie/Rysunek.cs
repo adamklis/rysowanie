@@ -11,15 +11,20 @@ namespace rysowanie
 {
     public class Rysunek
     {
-        private int _dlugoscZwierciadla = 13;
-        private double _rozmiarTrojkata = 1.0;
+        private int _dlugoscZwierciadlaUstalonego = 33;
+        private int _dlugoscZwierciadlaNawierconego = 13;
+        private Color _kolorZwierciadlaUstalonego = Color.Black;
+        private Color _kolorZwierciadlaNawierconego = Color.Black;
+        private double _rozmiarTrojkataUstalonego = 1.0;
+        private double _rozmiarTrojkataNawierconego = 1.0;
         private int _interwalSkali = 50;
         private int _przesuniecieY = 25;
         private int _przeuniecieX = 130;
         private int _szerokoscProfilu = 150;
         private int _przeuniecieOsi = 60;
         private int _przeuniecieLiczbOsi = 10;
-        private int _rozmiarCzcionki = 13;
+        private int _rozmiarCzcionkiWarstwy = 13;
+        private int _rozmiarCzcionkiSkali = 13;
         private Bitmap _obrazek;
         private Graphics _g;
 
@@ -44,7 +49,7 @@ namespace rysowanie
                 _przesuniecieY = value;
             }
         }
-        public int PrzeuniecieX
+        public int PrzesuniecieX
         {
             get
             {
@@ -68,7 +73,7 @@ namespace rysowanie
                 _przeuniecieOsi = value;
             }
         }
-        public int PrzeuniecieLiczbOsi
+        public int PrzesuniecieLiczbOsi
         {
             get
             {
@@ -80,16 +85,16 @@ namespace rysowanie
                 _przeuniecieLiczbOsi = value;
             }
         }
-        public int RozmiarCzcionki
+        public int RozmiarCzcionkiWarstwy
         {
             get
             {
-                return _rozmiarCzcionki;
+                return _rozmiarCzcionkiWarstwy;
             }
 
             set
             {
-                _rozmiarCzcionki = value;
+                _rozmiarCzcionkiWarstwy = value;
             }
         }
         public int InterwalSkali
@@ -101,6 +106,7 @@ namespace rysowanie
 
             set
             {
+                if (_interwalSkali>1)
                 _interwalSkali = value;
             }
         }
@@ -116,28 +122,88 @@ namespace rysowanie
                 _szerokoscProfilu = value;
             }
         }
-        public int DlugoscZwierciadla
+        public int DlugoscZwierciadlaUstalonego
         {
             get
             {
-                return _dlugoscZwierciadla;
+                return _dlugoscZwierciadlaUstalonego;
             }
 
             set
             {
-                _dlugoscZwierciadla = value;
+                _dlugoscZwierciadlaUstalonego = value;
             }
         }
-        public double RozmiarTrojkata
+        public double RozmiarTrojkataUstalonego
         {
             get
             {
-                return _rozmiarTrojkata;
+                return _rozmiarTrojkataUstalonego;
             }
 
             set
             {
-                _rozmiarTrojkata = value;
+                _rozmiarTrojkataUstalonego = value;
+            }
+        }
+        public int DlugoscZwierciadlaNawierconego
+        {
+            get
+            {
+                return _dlugoscZwierciadlaNawierconego;
+            }
+
+            set
+            {
+                _dlugoscZwierciadlaNawierconego = value;
+            }
+        }
+        public double RozmiarTrojkataNawierconego
+        {
+            get
+            {
+                return _rozmiarTrojkataNawierconego;
+            }
+
+            set
+            {
+                _rozmiarTrojkataNawierconego = value;
+            }
+        }
+        public Color KolorZwierciadlaUstalonego
+        {
+            get
+            {
+                return _kolorZwierciadlaUstalonego;
+            }
+
+            set
+            {
+                _kolorZwierciadlaUstalonego = value;
+            }
+        }
+        public Color KolorZwierciadlaNawierconego
+        {
+            get
+            {
+                return _kolorZwierciadlaNawierconego;
+            }
+
+            set
+            {
+                _kolorZwierciadlaNawierconego = value;
+            }
+        }
+        public int RozmiarCzcionkiSkali
+        {
+            get
+            {
+                return _rozmiarCzcionkiSkali;
+            }
+
+            set
+            {
+                _rozmiarCzcionkiSkali = value;
             }
         }
 
@@ -150,14 +216,14 @@ namespace rysowanie
 
         public void RysujWarstwe(Warstwa warstwa, double glebokosc)
         {
-            Font czcionka = new Font(FontFamily.GenericMonospace, RozmiarCzcionki);
+            Font czcionka = new Font(FontFamily.GenericMonospace, RozmiarCzcionkiWarstwy);
             StringFormat format = new StringFormat();
             SolidBrush pedzel = new SolidBrush(warstwa.Kolor);
             format.Alignment = StringAlignment.Center;
             format.LineAlignment = StringAlignment.Center;
             
             RectangleF prostokat = new RectangleF(
-                (int)(PrzeuniecieX),
+                (int)(PrzesuniecieX),
                 (int)(warstwa.GlebokoscStropu / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY,
                 (int)(SzerokoscProfilu),
                 (int)(warstwa.Miazszosc / (glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + 1
@@ -166,7 +232,7 @@ namespace rysowanie
             _g.FillRectangle(pedzel, prostokat);
             _g.DrawString(warstwa.Nazwa, czcionka, Brushes.Black, prostokat);
             _g.DrawString(warstwa.WspolczynnikFiltracji+"[m/d]", czcionka, Brushes.Black, prostokat,format);
-            _g.DrawString(warstwa.Miazszosc + "[m]", czcionka, Brushes.Black, prostokat.Left-65, prostokat.Top + (prostokat.Bottom - prostokat.Top)/2-RozmiarCzcionki);
+            _g.DrawString(warstwa.Miazszosc + "[m]", czcionka, Brushes.Black, prostokat.Left-65, prostokat.Top + (prostokat.Bottom - prostokat.Top)/2-RozmiarCzcionkiWarstwy);
         }       
         public void RysujProfil(Profil profil)
         {
@@ -187,51 +253,55 @@ namespace rysowanie
 
             double skala=interwal;
             double text = 0;
-            Font czcionka = new Font(FontFamily.GenericMonospace, RozmiarCzcionki);
+            Font czcionka = new Font(FontFamily.GenericMonospace, RozmiarCzcionkiSkali);
             interwal = (interwal / (studnia.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2));
 
             _g.DrawLine(Pens.Black, PrzeuniecieOsi, PrzesuniecieY, PrzeuniecieOsi, _obrazek.Height-PrzesuniecieY);    //pionowa linia
             for (double i = PrzesuniecieY; i < _obrazek.Height -PrzesuniecieY; i=i+interwal)
             {
                 _g.DrawLine(Pens.Black, PrzeuniecieOsi-5, (int)i, PrzeuniecieOsi + 5, (int)i);    //poziome linie
-                _g.DrawString(text.ToString(), czcionka,Brushes.Black, PrzeuniecieLiczbOsi, (float)i-RozmiarCzcionki/2);   //TEKST
+                _g.DrawString(text.ToString(), czcionka,Brushes.Black, PrzesuniecieLiczbOsi, (float)i-RozmiarCzcionkiSkali/2);   //TEKST
                 text += skala;
             }
         }
         public void RysujZwierciadloUstalone(Profil profil)
         {
+            SolidBrush kolorB = new SolidBrush(KolorZwierciadlaUstalonego);
+            Pen kolorP = new Pen(KolorZwierciadlaUstalonego);
+
             if (profil.ZwierciadloUstalone != -1)
             {
                 if (profil.Glebokosc != 0)
                 {
                     int y = (int)(profil.ZwierciadloUstalone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
-                    _g.DrawLine(Pens.Black, PrzeuniecieX - DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30, y);
+                    _g.DrawLine(kolorP, PrzesuniecieX - DlugoscZwierciadlaUstalonego, y, PrzesuniecieX + SzerokoscProfilu + DlugoscZwierciadlaUstalonego, y);
                     Point[] punkty =
                     {
-                        new Point ((int)(PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30-10*RozmiarTrojkata), (int)(y-16*RozmiarTrojkata)),
-                        new Point ((int)(PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30+10*RozmiarTrojkata), (int)(y-16*RozmiarTrojkata)),
-                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+30, y)
+                        new Point ((int)(PrzesuniecieX + SzerokoscProfilu + DlugoscZwierciadlaUstalonego-10*RozmiarTrojkataUstalonego), (int)(y-16*RozmiarTrojkataUstalonego)),
+                        new Point ((int)(PrzesuniecieX + SzerokoscProfilu + DlugoscZwierciadlaUstalonego+10*RozmiarTrojkataUstalonego), (int)(y-16*RozmiarTrojkataUstalonego)),
+                        new Point (PrzesuniecieX + SzerokoscProfilu + DlugoscZwierciadlaUstalonego, y)
                     };
-                    _g.FillPolygon(Brushes.Black, punkty);
+                    _g.FillPolygon(kolorB, punkty);
                 }
             }
         }
 
         public void RysujZwierciadloNawiercone(Profil profil)
         {
+            Pen kolorP = new Pen(KolorZwierciadlaNawierconego);
             if (profil.ZwierciadloNawiercone != -1)
             {
                 if (profil.Glebokosc != 0)
                 {
                     int y = (int)(profil.ZwierciadloNawiercone / (profil.Glebokosc) * (_obrazek.Height - PrzesuniecieY * 2)) + PrzesuniecieY;
-                    _g.DrawLine(Pens.Black, PrzeuniecieX - DlugoscZwierciadla, y, PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla, y);
+                    _g.DrawLine(kolorP, PrzesuniecieX - DlugoscZwierciadlaNawierconego, y, PrzesuniecieX + SzerokoscProfilu + DlugoscZwierciadlaNawierconego, y);
                     Point[] punkty =
                     {
-                        new Point ((int)(PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla-10*RozmiarTrojkata), (int)(y-16*RozmiarTrojkata)),
-                        new Point ((int)(PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla+10*RozmiarTrojkata), (int)(y-16*RozmiarTrojkata)),
-                        new Point (PrzeuniecieX + SzerokoscProfilu + DlugoscZwierciadla, y)
+                        new Point ((int)(PrzesuniecieX + SzerokoscProfilu + DlugoscZwierciadlaNawierconego-10*RozmiarTrojkataNawierconego), (int)(y-16*RozmiarTrojkataNawierconego)),
+                        new Point ((int)(PrzesuniecieX + SzerokoscProfilu + DlugoscZwierciadlaNawierconego+10*RozmiarTrojkataNawierconego), (int)(y-16*RozmiarTrojkataNawierconego)),
+                        new Point (PrzesuniecieX + SzerokoscProfilu + DlugoscZwierciadlaNawierconego, y)
                     };
-                    _g.DrawPolygon(Pens.Black, punkty);
+                    _g.DrawPolygon(kolorP, punkty);
                 }
             }
         }
