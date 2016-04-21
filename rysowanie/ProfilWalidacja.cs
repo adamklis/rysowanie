@@ -101,10 +101,9 @@
             return isValid;
         }
 
-        public static bool PolozenieZwierciadlaWalidacja(Profil profil, double zwierciadloNawiercone,
-            double zwierciadloUstalone)
+        public static bool PolozenieZwierciadlaWalidacja(Profil profil, double glebokoscZwierciadla)
         {
-            return !(profil.Glebokosc <= zwierciadloNawiercone || profil.Glebokosc <= zwierciadloUstalone);
+            return !(profil.Glebokosc <= glebokoscZwierciadla);
         }
 
         public static bool PolozenieZwierciadelWzgledemSiebieWalidacja(double zwierciadloNawiercone, double zwierciadloUstalone)

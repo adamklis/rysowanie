@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace rysowanie
         private Color _selectedColor = Color.Goldenrod;
         private Profil _profil;
         private Rysunek _rysunek;
-        private List<WarstwaDb> _warstwaDbList; 
+        private List<WarstwaDb> _warstwaDbList;
 
         public Form1()
         {
@@ -85,8 +86,8 @@ namespace rysowanie
             }
 
         }
-        
-        private void DodajWarstweLv(Warstwa warstwa )
+
+        private void DodajWarstweLv(Warstwa warstwa)
         {
             ListViewItem item = new ListViewItem(warstwa.Id.ToString());
             item.SubItems.Add(warstwa.Nazwa);
@@ -119,7 +120,7 @@ namespace rysowanie
                 catch
                 {
                     MessageBox.Show(@"Nie można edytować elementu", @"Wystąpił błąd", MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                        MessageBoxIcon.Warning);
                 }
 
             }
@@ -132,7 +133,7 @@ namespace rysowanie
 
         private void EdytujWarstweLv(Warstwa warstwa)
         {
-            
+
             if (lvProfil.SelectedItems.Count == 1)
             {
                 ListViewItem item = lvProfil.SelectedItems[0];
@@ -157,7 +158,7 @@ namespace rysowanie
                     {
                         try
                         {
-                            _profil.UsunWarstwe(Convert.ToInt32(((ListViewItem)selectedItem).Text));
+                            _profil.UsunWarstwe(Convert.ToInt32(((ListViewItem) selectedItem).Text));
                             UsunWarstweLv();
                         }
                         catch
@@ -165,7 +166,7 @@ namespace rysowanie
                             MessageBox.Show("Nie można usunąć elementu", "Wystąpił błąd", MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                         }
-                       
+
                     }
                     PrzeladujLv(_profil);
                     _rysunek.RysujProfil(_profil);
@@ -181,7 +182,7 @@ namespace rysowanie
             {
                 foreach (var item in lvProfil.SelectedItems)
                 {
-                    lvProfil.Items.Remove((ListViewItem)item);
+                    lvProfil.Items.Remove((ListViewItem) item);
                 }
             }
         }
@@ -199,7 +200,8 @@ namespace rysowanie
         {
             if (lvProfil.SelectedItems.Count != 0)
             {
-                Warstwa warstwa = _profil.Warstwy.FirstOrDefault(t => (t.Id.ToString() == lvProfil.SelectedItems[0].Text));
+                Warstwa warstwa =
+                    _profil.Warstwy.FirstOrDefault(t => (t.Id.ToString() == lvProfil.SelectedItems[0].Text));
                 if (warstwa != null)
                 {
                     cbNazwa.Text = warstwa.Nazwa;
@@ -213,7 +215,7 @@ namespace rysowanie
 
         private void cbNazwa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_warstwaDbList.Count>cbNazwa.SelectedIndex && cbNazwa.SelectedIndex != -1)
+            if (_warstwaDbList.Count > cbNazwa.SelectedIndex && cbNazwa.SelectedIndex != -1)
             {
                 WarstwaDb warstwaDb = _warstwaDbList[cbNazwa.SelectedIndex];
                 tbMiazszosc.Text = warstwaDb.Miazszosc.ToString();
@@ -265,7 +267,7 @@ namespace rysowanie
 
                 }
             }
-           
+
 
         }
 
@@ -279,7 +281,8 @@ namespace rysowanie
 
             if (ProfilWalidacja.MiazszoscWalidacja(tbMiazszosc.Text, out miazszosc) &&
                 ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa) &&
-                ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji) && cbNazwa.SelectedIndex!=-1)
+                ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji) &&
+                cbNazwa.SelectedIndex != -1)
             {
                 if (MessageBox.Show(@"Czy chcesz nadpisać obecne ustawienia warstwy?", @"Potwierdź",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -323,8 +326,108 @@ namespace rysowanie
         {
             PictureBox obrazek = studniaPictureBox;
             Button btnWlasciwosci = btnWlasciwosciProfilu;
-            WlasciwosciForm form = new WlasciwosciForm(_rysunek,_profil,obrazek, btnWlasciwosci);
+            WlasciwosciForm form = new WlasciwosciForm(_rysunek, _profil, obrazek, btnWlasciwosci);
             form.Show();
+        }
+
+        private void btnDodajZwNawiercone_Click(object sender, EventArgs e)
+        {
+            double zwNawiercone;
+            double zwUstalone;
+            if (ProfilWalidacja.ZwierciadloWalidacja(tbNawiercone.Text, out zwNawiercone))
+            {
+                if (ProfilWalidacja.PolozenieZwierciadlaWalidacja(_profil, zwNawiercone))
+                {
+                    if (ProfilWalidacja.ZwierciadloWalidacja(_profil.ZwierciadloUstalone.ToString(), out zwUstalone))
+                    {
+                        if (ProfilWalidacja.PolozenieZwierciadelWzgledemSiebieWalidacja(zwNawiercone, zwUstalone))
+                        {
+                            _profil.ZwierciadloNawiercone = zwNawiercone;
+                            _rysunek.RysujProfil(_profil);
+                            studniaPictureBox.Image = _rysunek.Obrazek;
+                        }
+                        else
+                        {
+                            if (MessageBox.Show(
+                                @"Zwierciadło nawiercone znajduje się poniżej zwierciadła ustalonego. Czy chcesz kontynuować?",
+                                @"Błąd położenia zwierciadła", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                                DialogResult.Yes)
+                            {
+                                _profil.ZwierciadloNawiercone = zwNawiercone;
+                                _rysunek.RysujProfil(_profil);
+                                studniaPictureBox.Image = _rysunek.Obrazek;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        _profil.ZwierciadloNawiercone = zwNawiercone;
+                        _rysunek.RysujProfil(_profil);
+                        studniaPictureBox.Image = _rysunek.Obrazek;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(@"Zwierciadlo wody poniżej spągu profilu", @"Błąd odczytu danych",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Nieprawidłowa wartość zwierciadła nawierconego", @"Błąd odczytu danych",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnDodajZwUstalone_Click(object sender, EventArgs e)
+        {
+            double zwUstalone;
+            double zwNawiercone;
+            if (ProfilWalidacja.ZwierciadloWalidacja(tbUstalone.Text, out zwUstalone))
+            {
+                if (ProfilWalidacja.PolozenieZwierciadlaWalidacja(_profil, zwUstalone))
+                {
+                    if (ProfilWalidacja.ZwierciadloWalidacja(_profil.ZwierciadloNawiercone.ToString(), out zwNawiercone))
+                    {
+                        if (ProfilWalidacja.PolozenieZwierciadelWzgledemSiebieWalidacja(zwNawiercone, zwUstalone))
+                        {
+                            _profil.ZwierciadloUstalone = zwUstalone;
+                            _rysunek.RysujProfil(_profil);
+                            studniaPictureBox.Image = _rysunek.Obrazek;
+                        }
+                        else
+                        {
+                            if (MessageBox.Show(
+                                @"Zwierciadło nawiercone znajduje się poniżej zwierciadła ustalonego. Czy chcesz kontynuować?",
+                                @"Błąd położenia zwierciadła", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                                DialogResult.Yes)
+                            {
+                                _profil.ZwierciadloUstalone = zwUstalone;
+                                _rysunek.RysujProfil(_profil);
+                                studniaPictureBox.Image = _rysunek.Obrazek;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        _profil.ZwierciadloUstalone = zwUstalone;
+                        _rysunek.RysujProfil(_profil);
+                        studniaPictureBox.Image = _rysunek.Obrazek;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(@"Zwierciadlo wody poniżej spągu profilu", @"Błąd odczytu danych",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Nieprawidłowa wartość zwierciadła ustalonego", @"Błąd odczytu danych",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }
+
