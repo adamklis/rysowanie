@@ -106,7 +106,7 @@ namespace rysowanie
 
             set
             {
-                if (_interwalSkali>1)
+                if (_interwalSkali>0)
                 _interwalSkali = value;
             }
         }
