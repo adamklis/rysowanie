@@ -307,6 +307,7 @@
             this.btnUsunZwUstalone.TabIndex = 14;
             this.btnUsunZwUstalone.Text = "Usuń";
             this.btnUsunZwUstalone.UseVisualStyleBackColor = true;
+            this.btnUsunZwUstalone.Click += new System.EventHandler(this.btnUsunZwUstalone_Click);
             // 
             // btnDodajZwUstalone
             // 
@@ -357,6 +358,7 @@
             this.btnUsunZwNawiercone.TabIndex = 10;
             this.btnUsunZwNawiercone.Text = "Usuń";
             this.btnUsunZwNawiercone.UseVisualStyleBackColor = true;
+            this.btnUsunZwNawiercone.Click += new System.EventHandler(this.btnUsunZwNawiercone_Click);
             // 
             // tbUstalone
             // 

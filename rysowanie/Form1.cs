@@ -428,6 +428,30 @@ namespace rysowanie
             }
 
         }
+
+        private void btnUsunZwNawiercone_Click(object sender, EventArgs e)
+        {
+            if (
+                MessageBox.Show(@"Czy chcesz usunąć zwierciadło nawiercone z profilu?", @"Potwierdź",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _profil.ZwierciadloNawiercone = -1;
+                _rysunek.RysujProfil(_profil);
+                studniaPictureBox.Image = _rysunek.Obrazek;
+            }
+        }
+
+        private void btnUsunZwUstalone_Click(object sender, EventArgs e)
+        {
+            if (
+                MessageBox.Show(@"Czy chcesz usunąć zwierciadło ustalone z profilu?", @"Potwierdź",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _profil.ZwierciadloUstalone = -1;
+                _rysunek.RysujProfil(_profil);
+                studniaPictureBox.Image = _rysunek.Obrazek;
+            }
+        }
     }
 }
 
