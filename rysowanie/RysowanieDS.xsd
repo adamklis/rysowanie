@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RysowanieDS" targetNamespace="http://tempuri.org/RysowanieDS.xsd" xmlns:mstns="http://tempuri.org/RysowanieDS.xsd" xmlns="http://tempuri.org/RysowanieDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RysowanieDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RysowanieDS" msprop:Generator_UserDSName="RysowanieDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KoloryWarstwDT" msprop:Generator_TableClassName="KoloryWarstwDTDataTable" msprop:Generator_TableVarName="tableKoloryWarstwDT" msprop:Generator_RowChangedName="KoloryWarstwDTRowChanged" msprop:Generator_TablePropName="KoloryWarstwDT" msprop:Generator_RowDeletingName="KoloryWarstwDTRowDeleting" msprop:Generator_RowChangingName="KoloryWarstwDTRowChanging" msprop:Generator_RowEvHandlerName="KoloryWarstwDTRowChangeEventHandler" msprop:Generator_RowDeletedName="KoloryWarstwDTRowDeleted" msprop:Generator_RowClassName="KoloryWarstwDTRow" msprop:Generator_UserTableName="KoloryWarstwDT" msprop:Generator_RowEvArgName="KoloryWarstwDTRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Nazwa" msprop:Generator_ColumnVarNameInTable="columnNazwa" msprop:Generator_ColumnPropNameInRow="Nazwa" msprop:Generator_ColumnPropNameInTable="NazwaColumn" msprop:Generator_UserColumnName="Nazwa" type="xs:string" minOccurs="0" />
+              <xs:element name="Miazszosc" msprop:Generator_ColumnVarNameInTable="columnMiazszosc" msprop:Generator_ColumnPropNameInRow="Miazszosc" msprop:Generator_ColumnPropNameInTable="MiazszoscColumn" msprop:Generator_UserColumnName="Miazszosc" type="xs:double" minOccurs="0" />
+              <xs:element name="WspFiltracji" msprop:Generator_ColumnVarNameInTable="columnWspFiltracji" msprop:Generator_ColumnPropNameInRow="WspFiltracji" msprop:Generator_ColumnPropNameInTable="WspFiltracjiColumn" msprop:Generator_UserColumnName="WspFiltracji" type="xs:double" minOccurs="0" />
+              <xs:element name="KolorA" msprop:Generator_ColumnVarNameInTable="columnKolorA" msprop:Generator_ColumnPropNameInRow="KolorA" msprop:Generator_ColumnPropNameInTable="KolorAColumn" msprop:Generator_UserColumnName="KolorA" type="xs:int" minOccurs="0" />
+              <xs:element name="KolorR" msprop:Generator_ColumnVarNameInTable="columnKolorR" msprop:Generator_ColumnPropNameInRow="KolorR" msprop:Generator_ColumnPropNameInTable="KolorRColumn" msprop:Generator_UserColumnName="KolorR" type="xs:int" minOccurs="0" />
+              <xs:element name="KolorG" msprop:Generator_ColumnVarNameInTable="columnKolorG" msprop:Generator_ColumnPropNameInRow="KolorG" msprop:Generator_ColumnPropNameInTable="KolorGColumn" msprop:Generator_UserColumnName="KolorG" type="xs:int" minOccurs="0" />
+              <xs:element name="KolorB" msprop:Generator_ColumnVarNameInTable="columnKolorB" msprop:Generator_ColumnPropNameInRow="KolorB" msprop:Generator_ColumnPropNameInTable="KolorBColumn" msprop:Generator_UserColumnName="KolorB" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProfilDT" msprop:Generator_TableClassName="ProfilDTDataTable" msprop:Generator_TableVarName="tableProfilDT" msprop:Generator_RowChangedName="ProfilDTRowChanged" msprop:Generator_TablePropName="ProfilDT" msprop:Generator_RowDeletingName="ProfilDTRowDeleting" msprop:Generator_RowChangingName="ProfilDTRowChanging" msprop:Generator_RowEvHandlerName="ProfilDTRowChangeEventHandler" msprop:Generator_RowDeletedName="ProfilDTRowDeleted" msprop:Generator_RowClassName="ProfilDTRow" msprop:Generator_UserTableName="ProfilDT" msprop:Generator_RowEvArgName="ProfilDTRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" minOccurs="0" />
+              <xs:element name="Nazwa" msprop:Generator_ColumnVarNameInTable="columnNazwa" msprop:Generator_ColumnPropNameInRow="Nazwa" msprop:Generator_ColumnPropNameInTable="NazwaColumn" msprop:Generator_UserColumnName="Nazwa" type="xs:string" minOccurs="0" />
+              <xs:element name="Miazszosc" msprop:Generator_ColumnVarNameInTable="columnMiazszosc" msprop:Generator_ColumnPropNameInRow="Miazszosc" msprop:Generator_ColumnPropNameInTable="MiazszoscColumn" msprop:Generator_UserColumnName="Miazszosc" type="xs:double" minOccurs="0" />
+              <xs:element name="WspFiltracji" msprop:Generator_ColumnVarNameInTable="columnWspFiltracji" msprop:Generator_ColumnPropNameInRow="WspFiltracji" msprop:Generator_ColumnPropNameInTable="WspFiltracjiColumn" msprop:Generator_UserColumnName="WspFiltracji" type="xs:double" minOccurs="0" />
+              <xs:element name="GlebokoscStropu" msprop:Generator_ColumnVarNameInTable="columnGlebokoscStropu" msprop:Generator_ColumnPropNameInRow="GlebokoscStropu" msprop:Generator_ColumnPropNameInTable="GlebokoscStropuColumn" msprop:Generator_UserColumnName="GlebokoscStropu" type="xs:string" minOccurs="0" />
+              <xs:element name="GlebokoscSpagu" msprop:Generator_ColumnVarNameInTable="columnGlebokoscSpagu" msprop:Generator_ColumnPropNameInRow="GlebokoscSpagu" msprop:Generator_ColumnPropNameInTable="GlebokoscSpaguColumn" msprop:Generator_UserColumnName="GlebokoscSpagu" type="xs:string" minOccurs="0" />
+              <xs:element name="KolorA" msprop:Generator_ColumnVarNameInTable="columnKolorA" msprop:Generator_ColumnPropNameInRow="KolorA" msprop:Generator_ColumnPropNameInTable="KolorAColumn" msprop:Generator_UserColumnName="KolorA" type="xs:int" minOccurs="0" />
+              <xs:element name="KolorR" msprop:Generator_ColumnVarNameInTable="columnKolorR" msprop:Generator_ColumnPropNameInRow="KolorR" msprop:Generator_ColumnPropNameInTable="KolorRColumn" msprop:Generator_UserColumnName="KolorR" type="xs:int" minOccurs="0" />
+              <xs:element name="KolorG" msprop:Generator_ColumnVarNameInTable="columnKolorG" msprop:Generator_ColumnPropNameInRow="KolorG" msprop:Generator_ColumnPropNameInTable="KolorGColumn" msprop:Generator_UserColumnName="KolorG" type="xs:int" minOccurs="0" />
+              <xs:element name="KolorB" msprop:Generator_ColumnVarNameInTable="columnKolorB" msprop:Generator_ColumnPropNameInRow="KolorB" msprop:Generator_ColumnPropNameInTable="KolorBColumn" msprop:Generator_UserColumnName="KolorB" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ZwierciadloDT" msprop:Generator_TableClassName="ZwierciadloDTDataTable" msprop:Generator_TableVarName="tableZwierciadloDT" msprop:Generator_TablePropName="ZwierciadloDT" msprop:Generator_RowDeletingName="ZwierciadloDTRowDeleting" msprop:Generator_RowChangingName="ZwierciadloDTRowChanging" msprop:Generator_RowEvHandlerName="ZwierciadloDTRowChangeEventHandler" msprop:Generator_RowDeletedName="ZwierciadloDTRowDeleted" msprop:Generator_UserTableName="ZwierciadloDT" msprop:Generator_RowChangedName="ZwierciadloDTRowChanged" msprop:Generator_RowEvArgName="ZwierciadloDTRowChangeEvent" msprop:Generator_RowClassName="ZwierciadloDTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ZwNawiercone" msprop:Generator_ColumnVarNameInTable="columnZwNawiercone" msprop:Generator_ColumnPropNameInRow="ZwNawiercone" msprop:Generator_ColumnPropNameInTable="ZwNawierconeColumn" msprop:Generator_UserColumnName="ZwNawiercone" type="xs:string" minOccurs="0" />
+              <xs:element name="ZwUstalone" msprop:Generator_ColumnVarNameInTable="columnZwUstalone" msprop:Generator_ColumnPropNameInRow="ZwUstalone" msprop:Generator_ColumnPropNameInTable="ZwUstaloneColumn" msprop:Generator_UserColumnName="ZwUstalone" type="xs:string" minOccurs="0" />
+              <xs:element name="SrWspFiltracji" msprop:Generator_ColumnVarNameInTable="columnSrWspFiltracji" msprop:Generator_ColumnPropNameInRow="SrWspFiltracji" msprop:Generator_ColumnPropNameInTable="SrWspFiltracjiColumn" msprop:Generator_UserColumnName="SrWspFiltracji" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

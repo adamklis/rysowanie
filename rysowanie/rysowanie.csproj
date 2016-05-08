@@ -79,31 +79,17 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ProfilWalidacja.cs" />
+    <Compile Include="RysowanieDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RysowanieDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Rysunek.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Profil.cs" />
     <Compile Include="Warstwa.cs" />
     <Compile Include="WarstwaDb.cs" />
-    <Compile Include="Warstwy.cs">
-      <DependentUpon>WarstwyDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WarstwyDBDataAccess.cs" />
-    <Compile Include="WarstwyDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WarstwyDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WarstwyDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WarstwyDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WarstwyDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WarstwyDBModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="WlasciwosciForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,35 +121,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="WarstwyDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WarstwyDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="WarstwyDBModel.edmx.diagram">
-      <DependentUpon>WarstwyDBModel.edmx</DependentUpon>
+    <None Include="RysowanieDS.xsc">
+      <DependentUpon>RysowanieDS.xsd</DependentUpon>
+    </None>
+    <None Include="RysowanieDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RysowanieDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RysowanieDS.xss">
+      <DependentUpon>RysowanieDS.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="WarstwyDB.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <Content Include="WarstwyDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WarstwyDBModel.edmx</DependentUpon>
-      <LastGenOutput>WarstwyDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="WarstwyDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WarstwyDBModel.edmx</DependentUpon>
-      <LastGenOutput>WarstwyDBModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="WarstwyDB_log.ldf">
-      <DependentUpon>WarstwyDB.mdf</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">

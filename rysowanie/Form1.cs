@@ -46,12 +46,12 @@ namespace rysowanie
 
         private void ReloadCbNazwa()
         {
-            cbNazwa.Items.Clear();
-            _warstwaDbList = WarstwyDbDataAccess.GetData();
-            foreach (WarstwaDb warstwaDb in _warstwaDbList)
-            {
-                cbNazwa.Items.Add(warstwaDb.Nazwa);
-            }
+            //cbNazwa.Items.Clear();
+            //_warstwaDbList = WarstwyDbDataAccess.GetData();
+            //foreach (WarstwaDb warstwaDb in _warstwaDbList)
+            //{
+            //    cbNazwa.Items.Add(warstwaDb.Nazwa);
+            //}
         }
 
         private void btnKolor_Click(object sender, EventArgs e)
@@ -228,94 +228,94 @@ namespace rysowanie
 
         private void btnZapiszUstawienia_Click(object sender, EventArgs e)
         {
-            string nazwa;
-            float miazszosc;
-            float wspFiltracji;
+            //string nazwa;
+            //float miazszosc;
+            //float wspFiltracji;
 
 
-            if (ProfilWalidacja.MiazszoscWalidacja(tbMiazszosc.Text, out miazszosc) &&
-                ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa) &&
-                ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji))
-            {
-                if (MessageBox.Show(@"Czy chcesz zapisać obecne ustawienia warstwy?", @"Potwierdź",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    WarstwaDb warstwaDb = new WarstwaDb
-                    {
-                        Nazwa = nazwa,
-                        Miazszosc = miazszosc,
-                        WspFiltracji = wspFiltracji,
-                        KolorA = _selectedColor.A,
-                        KolorR = _selectedColor.R,
-                        KolorG = _selectedColor.G,
-                        KolorB = _selectedColor.B,
-                        Image = null
-                    };
-                    if (WarstwyDbDataAccess.InsertData(warstwaDb))
-                    {
-                        ReloadCbNazwa();
-                        MessageBox.Show(@"Pomyślnie dodano bieżące ustawienia", @"Dodano ustawienia",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show(@"Bieżące ustawienia nie zostały dodane", @"Wystąpił nieznany błąd",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
+            //if (ProfilWalidacja.MiazszoscWalidacja(tbMiazszosc.Text, out miazszosc) &&
+            //    ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa) &&
+            //    ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji))
+            //{
+            //    if (MessageBox.Show(@"Czy chcesz zapisać obecne ustawienia warstwy?", @"Potwierdź",
+            //        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        WarstwaDb warstwaDb = new WarstwaDb
+            //        {
+            //            Nazwa = nazwa,
+            //            Miazszosc = miazszosc,
+            //            WspFiltracji = wspFiltracji,
+            //            KolorA = _selectedColor.A,
+            //            KolorR = _selectedColor.R,
+            //            KolorG = _selectedColor.G,
+            //            KolorB = _selectedColor.B,
+            //            Image = null
+            //        };
+            //        if (WarstwyDbDataAccess.InsertData(warstwaDb))
+            //        {
+            //            ReloadCbNazwa();
+            //            MessageBox.Show(@"Pomyślnie dodano bieżące ustawienia", @"Dodano ustawienia",
+            //                MessageBoxButtons.OK,
+            //                MessageBoxIcon.Information);
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show(@"Bieżące ustawienia nie zostały dodane", @"Wystąpił nieznany błąd",
+            //                MessageBoxButtons.OK,
+            //                MessageBoxIcon.Error);
+            //        }
 
-                }
-            }
+            //    }
+            //}
 
 
         }
 
         private void btnEdytujUstawienia_Click(object sender, EventArgs e)
         {
-            int id;
-            string nazwa;
-            float miazszosc;
-            float wspFiltracji;
+            //int id;
+            //string nazwa;
+            //float miazszosc;
+            //float wspFiltracji;
 
 
-            if (ProfilWalidacja.MiazszoscWalidacja(tbMiazszosc.Text, out miazszosc) &&
-                ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa) &&
-                ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji) &&
-                cbNazwa.SelectedIndex != -1)
-            {
-                if (MessageBox.Show(@"Czy chcesz nadpisać obecne ustawienia warstwy?", @"Potwierdź",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    id = _warstwaDbList.Find(t => t.Id == cbNazwa.SelectedIndex).Id;
-                    WarstwaDb warstwaDb = new WarstwaDb
-                    {
-                        Id = id,
-                        Nazwa = nazwa,
-                        Miazszosc = miazszosc,
-                        WspFiltracji = wspFiltracji,
-                        KolorA = _selectedColor.A,
-                        KolorR = _selectedColor.R,
-                        KolorG = _selectedColor.G,
-                        KolorB = _selectedColor.B,
-                        Image = null
-                    };
-                    if (WarstwyDbDataAccess.EditData(warstwaDb))
-                    {
-                        ReloadCbNazwa();
-                        MessageBox.Show(@"Pomyślnie zaktualizowano dane o litologii", @"Dodano ustawienia",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show(@"Dane o litologii nie zostały zaktualizowane", @"Wystąpił nieznany błąd",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
+            //if (ProfilWalidacja.MiazszoscWalidacja(tbMiazszosc.Text, out miazszosc) &&
+            //    ProfilWalidacja.NazwaWalidacja(cbNazwa.Text, out nazwa) &&
+            //    ProfilWalidacja.WspFiltracjiWalidacja(tbWspFitracji.Text, out wspFiltracji) &&
+            //    cbNazwa.SelectedIndex != -1)
+            //{
+            //    if (MessageBox.Show(@"Czy chcesz nadpisać obecne ustawienia warstwy?", @"Potwierdź",
+            //        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        id = _warstwaDbList.Find(t => t.Id == cbNazwa.SelectedIndex).Id;
+            //        WarstwaDb warstwaDb = new WarstwaDb
+            //        {
+            //            Id = id,
+            //            Nazwa = nazwa,
+            //            Miazszosc = miazszosc,
+            //            WspFiltracji = wspFiltracji,
+            //            KolorA = _selectedColor.A,
+            //            KolorR = _selectedColor.R,
+            //            KolorG = _selectedColor.G,
+            //            KolorB = _selectedColor.B,
+            //            Image = null
+            //        };
+            //        if (WarstwyDbDataAccess.EditData(warstwaDb))
+            //        {
+            //            ReloadCbNazwa();
+            //            MessageBox.Show(@"Pomyślnie zaktualizowano dane o litologii", @"Dodano ustawienia",
+            //                MessageBoxButtons.OK,
+            //                MessageBoxIcon.Information);
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show(@"Dane o litologii nie zostały zaktualizowane", @"Wystąpił nieznany błąd",
+            //                MessageBoxButtons.OK,
+            //                MessageBoxIcon.Error);
+            //        }
 
-                }
-            }
+            //    }
+            //}
 
 
 
